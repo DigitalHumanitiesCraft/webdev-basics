@@ -1,8 +1,8 @@
-# Web-Entwicklung für Forscher\*innen in den Geisteswissenschaften
+# Web-Entwicklung für Forscher\*innen
 
 ## Grundlagen & KI-gestützte Entwicklung mit **Vibe Coding**
 
-*Ein praxisorientierter Workshop für Geisteswissenschaftler*innen ohne Web-Entwicklungserfahrung\*
+*Ein praxisorientierter Workshop für Forscher\*innen ohne Web-Entwicklungserfahrung*
 
 ---
 
@@ -10,7 +10,7 @@
 
 1. [Web-Vokabular](#das-web-vokabular)
 2. [Einfache Entwicklungswerkzeuge](#werkzeuge-einrichten)
-3. [Markdown](#markdown-für-akademische-dokumentation)
+3. [Markdown](#markdown)
 4. [Effektives Vibe Coding mit KI](#effektives-vibe-coding-mit-ki)
 5. [Vom Code zur Website: Einfaches Deployment](#vom-code-zur-website---deployment)
 6. [Praxis: Digitale Geisteswissenschaften](#praktisches-beispiel---digitale-geisteswissenschaften)
