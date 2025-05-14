@@ -1,250 +1,313 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web-Entwicklung für Forscher*innen in den Geisteswissenschaften</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Web-Entwicklung für Forscher*innen in den Geisteswissenschaften
+    </title>
 
-  <!-- Reveal.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css" id="theme">
+    <!-- Reveal.js CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css"
+      id="theme"
+    />
 
-  <!-- Code syntax highlighting -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css">
+    <!-- Code syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css"
+    />
 
-  <!-- Custom styling for academic, light theme -->
-  <style>
-    :root {
-      --main-color: #4a86e8;
-      --heading-color: #1c3a70;
-      --text-color: #333;
-      --light-accent: #e8f0fe;
-      --code-bg: #0f0f0f;
-    }
+    <!-- Custom styling for academic, light theme -->
+    <style>
+      :root {
+        --main-color: #4a86e8;
+        --heading-color: #1c3a70;
+        --text-color: #333;
+        --light-accent: #e8f0fe;
+      }
 
-    .reveal {
-      font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-      font-size: 32px;
-      color: var(--text-color);
-    }
+      .reveal {
+        font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
+        font-size: 32px;
+        color: var(--text-color);
+      }
 
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-      font-family: 'Lato', 'Helvetica Neue', sans-serif;
-      color: var(--heading-color);
-      letter-spacing: -0.025em;
-    }
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal h4 {
+        font-family: "Lato", "Helvetica Neue", sans-serif;
+        color: var(--heading-color);
+        letter-spacing: -0.025em;
+      }
 
-    .reveal h1 {
-      font-size: 2.2em;
-      margin-bottom: 0.2em;
-    }
+      .reveal h1 {
+        font-size: 2.2em;
+        margin-bottom: 0.2em;
+      }
 
-    .reveal h2 {
-      font-size: 1.6em;
-      margin-bottom: 0.5em;
-    }
+      .reveal h2 {
+        font-size: 1.6em;
+        margin-bottom: 0.5em;
+      }
 
-    .reveal ul, .reveal ol {
-      display: block;
-      margin-left: 2em;
-    }
+      .reveal ul,
+      .reveal ol {
+        display: block;
+        margin-left: 2em;
+      }
 
-    .reveal li {
-      margin-bottom: 0.5em;
-    }
+      .reveal li {
+        margin-bottom: 0.5em;
+      }
 
-    .reveal pre {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-      max-height: 500px;
-      overflow-y: auto;
-    }
+      /* Fixed code block styling with single scrollbar */
+      .reveal pre {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        border-radius: 5px; /* Standardized radius */
+        background-color: #272822; /* Monokai's standard background */
+        margin: 15px 0;
+        border: 1px solid #3a3a3a;
+        overflow: hidden; /* Prevents double scrollbars */
+        position: relative;
+      }
 
-    .reveal code {
-      font-family: 'Fira Mono', monospace;
-      font-size: 0.8em;
-      padding: 0.2em 0.4em;
-      border-radius: 3px;
-      background: var(--code-bg);
-    }
+      .reveal pre code {
+        padding: 20px;
+        line-height: 1.5;
+        background-color: transparent; /* Let the pre background show */
+        color: #f8f8f2; /* Monokai's standard text color - light */
+        display: block;
+        overflow: auto; /* Single scrollable element */
+        max-height: 400px; /* Consistent height */
+        white-space: pre;
+        word-wrap: normal;
+      }
 
-    .reveal pre code {
-      padding: 20px;
-      line-height: 1.5;
-      max-height: none;
-    }
+      /* For inline code, keep it light but distinct */
+      .reveal code:not(pre code) {
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        border: 1px solid #e0e0e0;
+      }
 
-    .reveal blockquote {
-      border-left: 4px solid var(--main-color);
-      padding-left: 1em;
-      font-style: italic;
-      background: var(--light-accent);
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-      padding: 1em;
-      border-radius: 5px;
-    }
+      .reveal blockquote {
+        border-left: 4px solid var(--main-color);
+        padding: 1em;
+        font-style: italic;
+        background: var(--light-accent);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        border-radius: 5px;
+      }
 
-    .reveal .progress {
-      height: 6px;
-      color: var(--main-color);
-    }
+      .reveal .progress {
+        height: 6px;
+        color: var(--main-color);
+      }
 
-    .reveal .controls {
-      color: var(--main-color);
-    }
+      .reveal .controls {
+        color: var(--main-color);
+      }
 
-    .reveal .slide-number {
-      background-color: transparent;
-      color: var(--text-color);
-    }
+      .reveal .slide-number {
+        background-color: transparent;
+        color: var(--text-color);
+      }
 
-    .reveal .footer {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      font-size: 0.5em;
-      color: #999;
-    }
+      .reveal .footer {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.5em;
+        color: #999;
+      }
 
-    /* Styling for highlighted lines in code blocks */
-    .hljs-highlighted {
-      background-color: rgba(255, 255, 0, 0.2);
-      display: block;
-      margin: 0 -20px;
-      padding: 0 20px;
-    }
+      /* Styling for highlighted lines in code blocks */
+      .hljs-highlighted {
+        background-color: rgba(255, 255, 0, 0.2);
+        display: block;
+        margin: 0 -20px;
+        padding: 0 20px;
+      }
 
-    /* Custom styling for this presentation */
-    .reveal .screenshots img {
-      max-height: 70vh;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
-    }
+      /* Custom styling for this presentation */
+      .reveal .screenshots img {
+        max-height: 70vh;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
 
-    .reveal .side-by-side {
-      display: flex;
-      gap: 20px;
-    }
+      .reveal .side-by-side {
+        display: flex;
+        gap: 20px;
+      }
 
-    .reveal .side-by-side > div {
-      flex: 1;
-    }
+      .reveal .side-by-side > div {
+        flex: 1;
+      }
 
-    .reveal .small-text {
-      font-size: 0.8em;
-    }
+      .reveal .small-text {
+        font-size: 0.8em;
+      }
 
-    .reveal .very-small-text {
-      font-size: 0.7em;
-    }
+      .reveal .very-small-text {
+        font-size: 0.7em;
+      }
 
-    .reveal .highlight-box {
-      background-color: var(--light-accent);
-      padding: 15px;
-      border-radius: 5px;
-      border-left: 4px solid var(--main-color);
-    }
+      .reveal .highlight-box {
+        background-color: var(--light-accent);
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid var(--main-color);
+      }
 
-    .reveal .scrollable-code {
-      max-height: 400px;
-      overflow-y: auto;
-    }
+      /* Style tables */
+      .reveal table {
+        margin: 1em auto;
+        border-collapse: collapse;
+      }
 
-    /* Ensure code block scrolling works well */
-    .reveal pre {
-      overflow-x: auto;
-      white-space: pre;
-      word-wrap: normal;
-    }
+      .reveal table th,
+      .reveal table td {
+        padding: 0.5em;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
 
-    /* Style tables */
-    .reveal table {
-      margin: 1em auto;
-      border-collapse: collapse;
-    }
+      .reveal table th {
+        background-color: var(--light-accent);
+        font-weight: bold;
+      }
 
-    .reveal table th,
-    .reveal table td {
-      padding: 0.5em;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
+      /* Images */
+      .reveal img {
+        max-height: 70vh;
+        max-width: 100%;
+        object-fit: contain;
+      }
 
-    .reveal table th {
-      background-color: var(--light-accent);
-      font-weight: bold;
-    }
+      /* Responsive design adjustments */
+      @media (max-width: 768px) {
+        .reveal .side-by-side {
+          flex-direction: column;
+        }
 
-    /* Images */
-    .reveal img {
-      max-height: 70vh;
-      max-width: 100%;
-      object-fit: contain;
-    }
-  </style>
-</head>
-<body>
-  <div class="reveal">
-    <div class="slides">
-      <!-- Title Slide -->
-      <section>
-        <h1>Web-Entwicklung für Forscher*innen in den Geisteswissenschaften</h1>
-        <h3>Grundlagen & KI-gestützte Entwicklung mit <strong>Vibe Coding</strong></h3>
-        <p>
-          <small>Ein praxisorientierter Workshop für Geisteswissenschaftler*innen ohne Web-Entwicklungserfahrung</small>
-        </p>
-      </section>
+        .reveal pre code {
+          max-height: 300px; /* Smaller on mobile */
+        }
 
-      <!-- Inhaltsverzeichnis -->
-      <section>
-        <h2>Inhaltsverzeichnis</h2>
-        <ol>
-          <li>Web-Vokabular</li>
-          <li>Einfache Entwicklungswerkzeuge</li>
-          <li>Markdown für akademische Dokumentation</li>
-          <li>Effektives Vibe Coding mit KI</li>
-          <li>Vom Code zur Website: Einfaches Deployment</li>
-          <li>Praxis: Digitale Geisteswissenschaften</li>
-          <li>Barrierefreiheit (a11y) Basics</li>
-          <li>Vibe Working in der Forschung</li>
-          <li>Praktische Tipps & Tricks</li>
-          <li>Weiterführende Ressourcen</li>
-        </ol>
-      </section>
-
-      <!-- Das Web-Vokabular -->
-      <section>
+        .reveal {
+          font-size: 28px; /* Slightly smaller text on mobile */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title Slide -->
         <section>
-          <h2>Das Web-Vokabular</h2>
-          <h3>Warum Vokabular für KI-gestützte Entwicklung entscheidend ist</h3>
-          <ul>
-            <li>KI benötigt <strong>präzise Fachbegriffe</strong> um bessere Ergebnisse zu liefern</li>
-            <li>Wir erinnern uns: <em>Embeddings</em>, <em>Multidimensionales Universum</em></li>
-          </ul>
+          <h1>
+            Web-Entwicklung für Forscher*innen in den Geisteswissenschaften
+          </h1>
+          <h3>
+            Grundlagen & KI-gestützte Entwicklung mit
+            <strong>Vibe Coding</strong>
+          </h3>
+          <p>
+            <small
+              >Ein praxisorientierter Workshop für Geisteswissenschaftler*innen
+              ohne Web-Entwicklungserfahrung</small
+            >
+          </p>
         </section>
 
+        <!-- Inhaltsverzeichnis -->
         <section>
-          <h3>Die drei Grundpfeiler des Webs</h3>
+          <h2>Inhaltsverzeichnis</h2>
           <ol>
-            <li><strong>HTML</strong> – Struktur & Inhalt (Was wird angezeigt?)</li>
-            <li><strong>CSS</strong> – Gestaltung (Wie sieht es aus?)</li>
-            <li><strong>JavaScript</strong> – Interaktion (Was passiert bei Nutzer-Aktionen?)</li>
+            <li>Web-Vokabular</li>
+            <li>Einfache Entwicklungswerkzeuge</li>
+            <li>Markdown für akademische Dokumentation</li>
+            <li>Effektives Vibe Coding mit KI</li>
+            <li>Vom Code zur Website: Einfaches Deployment</li>
+            <li>Praxis: Digitale Geisteswissenschaften</li>
+            <li>Barrierefreiheit (a11y) Basics</li>
+            <li>Vibe Working in der Forschung</li>
+            <li>Praktische Tipps & Tricks</li>
+            <li>Weiterführende Ressourcen</li>
           </ol>
         </section>
 
+        <!-- Das Web-Vokabular -->
         <section>
-          <h3>Grundlagen HTML – Schlüsselbegriffe</h3>
-          <ul>
-            <li><strong>HTML-Dokument</strong> (<code>&lt;!DOCTYPE html&gt;</code>)</li>
-            <li><strong>Tags</strong> (z.B. <code>&lt;h1&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>)</li>
-            <li><strong>Attribute</strong> (z.B. <code>class="timeline"</code>)</li>
-            <li><strong>Semantik</strong> (<code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;figure&gt;</code>)</li>
-          </ul>
-        </section>
+          <section>
+            <h2>Das Web-Vokabular</h2>
+            <h3>
+              Warum Vokabular für KI-gestützte Entwicklung entscheidend ist
+            </h3>
+            <ul>
+              <li>
+                KI benötigt <strong>präzise Fachbegriffe</strong> um bessere
+                Ergebnisse zu liefern
+              </li>
+              <li>
+                Wir erinnern uns: <em>Embeddings</em>,
+                <em>Multidimensionales Universum</em>
+              </li>
+            </ul>
+          </section>
 
-        <section>
-          <h3>Beispiel: Grundaufbau für eine digitale Edition</h3>
-          <pre class="scrollable-code"><code class="html">&lt;!DOCTYPE html&gt;
+          <section>
+            <h3>Die drei Grundpfeiler des Webs</h3>
+            <ol>
+              <li>
+                <strong>HTML</strong> – Struktur & Inhalt (Was wird angezeigt?)
+              </li>
+              <li><strong>CSS</strong> – Gestaltung (Wie sieht es aus?)</li>
+              <li>
+                <strong>JavaScript</strong> – Interaktion (Was passiert bei
+                Nutzer-Aktionen?)
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Grundlagen HTML – Schlüsselbegriffe</h3>
+            <ul>
+              <li>
+                <strong>HTML-Dokument</strong> (<code
+                  >&lt;!DOCTYPE html&gt;</code
+                >)
+              </li>
+              <li>
+                <strong>Tags</strong> (z.B. <code>&lt;h1&gt;</code>,
+                <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>)
+              </li>
+              <li>
+                <strong>Attribute</strong> (z.B. <code>class="timeline"</code>)
+              </li>
+              <li>
+                <strong>Semantik</strong> (<code>&lt;article&gt;</code>,
+                <code>&lt;nav&gt;</code>, <code>&lt;figure&gt;</code>)
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Beispiel: Grundaufbau für eine digitale Edition</h3>
+            <pre
+              class="scrollable-code"
+            ><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang="de"&gt;
   &lt;head&gt;
     &lt;meta charset="utf-8" /&gt;
@@ -282,20 +345,23 @@
     &lt;script src="js/script.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-        </section>
+          </section>
 
-        <section>
-          <h3>Grundlagen CSS – Schlüsselbegriffe</h3>
-          <ul>
-            <li><strong>Selektor</strong>, <strong>Eigenschaft</strong>, <strong>Wert</strong></li>
-            <li><strong>Responsive Design</strong> (für Mobilgeräte)</li>
-            <li><strong>Klassen</strong> vs. <strong>IDs</strong></li>
-          </ul>
-        </section>
+          <section>
+            <h3>Grundlagen CSS – Schlüsselbegriffe</h3>
+            <ul>
+              <li>
+                <strong>Selektor</strong>, <strong>Eigenschaft</strong>,
+                <strong>Wert</strong>
+              </li>
+              <li><strong>Responsive Design</strong> (für Mobilgeräte)</li>
+              <li><strong>Klassen</strong> vs. <strong>IDs</strong></li>
+            </ul>
+          </section>
 
-        <section>
-          <h3>Beispiel: CSS für eine digitale Edition</h3>
-          <pre class="scrollable-code"><code class="css">/* Grundlayout */
+          <section>
+            <h3>Beispiel: CSS für eine digitale Edition</h3>
+            <pre class="scrollable-code"><code class="css">/* Grundlayout */
 body {
   font-family: "Palatino", "Georgia", serif;
   line-height: 1.6;
@@ -338,15 +404,22 @@ body {
     height: auto;
   }
 }</code></pre>
-        </section>
+          </section>
 
-        <section>
-          <h3>Grundlagen JavaScript</h3>
-          <ul>
-            <li>Interaktivität hinzufügen (z.B. Zeitstrahl, Bildergalerie)</li>
-            <li>Meist können Sie <strong>fertige Komponenten</strong> verwenden oder mit KI generieren</li>
-          </ul>
-          <pre class="scrollable-code"><code class="javascript">// Warten, bis das Dokument vollständig geladen ist
+          <section>
+            <h3>Grundlagen JavaScript</h3>
+            <ul>
+              <li>
+                Interaktivität hinzufügen (z.B. Zeitstrahl, Bildergalerie)
+              </li>
+              <li>
+                Meist können Sie <strong>fertige Komponenten</strong> verwenden
+                oder mit KI generieren
+              </li>
+            </ul>
+            <pre
+              class="scrollable-code"
+            ><code class="javascript">// Warten, bis das Dokument vollständig geladen ist
 document.addEventListener("DOMContentLoaded", function () {
   // Alle Elemente mit der Klasse 'place' auswählen
   const placeElements = document.querySelectorAll(".place");
@@ -362,87 +435,132 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });</code></pre>
-        </section>
-      </section>
-
-      <!-- Werkzeuge einrichten -->
-      <section>
-        <section>
-          <h2>Werkzeuge einrichten</h2>
-          <h3>Visual Studio Code (VS Code)</h3>
-          <ol>
-            <li><strong>Download</strong>: <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a></li>
-            <li><strong>Empfohlene Extensions</strong>
-              <ul>
-                <li><strong>Live Server</strong> (lokale Vorschau)</li>
-                <li><strong>Prettier</strong> (Code-Formatierung)</li>
-                <li><strong>Markdown All in One</strong> (Markdown ist wichtig!)</li>
-                <li><strong>Web Accessibility</strong> (a11y-Checker)</li>
-                <li><strong>HTML CSS Support</strong></li>
-              </ul>
-            </li>
-          </ol>
+          </section>
         </section>
 
+        <!-- Werkzeuge einrichten -->
         <section>
-          <h3>VSCode Extensions</h3>
-          <div class="screenshots">
-            <img src="image-1.png" alt="VSCode Extensions Marketplace">
-          </div>
+          <section>
+            <h2>Werkzeuge einrichten</h2>
+            <h3>Visual Studio Code (VS Code)</h3>
+            <ol>
+              <li>
+                <strong>Download</strong>:
+                <a href="https://code.visualstudio.com/" target="_blank"
+                  >https://code.visualstudio.com/</a
+                >
+              </li>
+              <li>
+                <strong>Empfohlene Extensions</strong>
+                <ul>
+                  <li><strong>Live Server</strong> (lokale Vorschau)</li>
+                  <li><strong>Prettier</strong> (Code-Formatierung)</li>
+                  <li>
+                    <strong>Markdown All in One</strong> (Markdown ist wichtig!)
+                  </li>
+                  <li><strong>Web Accessibility</strong> (a11y-Checker)</li>
+                  <li><strong>HTML CSS Support</strong></li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>VSCode Extensions</h3>
+            <div class="screenshots">
+              <img src="image-1.png" alt="VSCode Extensions Marketplace" />
+            </div>
+          </section>
+
+          <section>
+            <h3>Einfaches GitHub-Setup</h3>
+            <ul>
+              <li>
+                Erstellen Sie ein kostenloses Konto auf
+                <a href="https://github.com/" target="_blank">GitHub</a>
+              </li>
+              <li>
+                Installieren Sie
+                <a href="https://desktop.github.com/" target="_blank"
+                  >GitHub Desktop</a
+                >
+                für einfaches Veröffentlichen
+              </li>
+              <li>
+                Veröffentichen Sie ihre Seite mit
+                <a href="https://pages.github.com/" target="_blank"
+                  >GitHub Pages</a
+                >
+              </li>
+            </ul>
+            <div class="screenshots">
+              <img src="image-2.png" alt="GitHub Desktop Interface" />
+            </div>
+          </section>
+
+          <section>
+            <h3>Browser DevTools – einfache Nutzung</h3>
+            <ul>
+              <li><strong>Inspektor</strong>: HTML & CSS anschauen</li>
+              <li>
+                <strong>Zugänglichkeitsprüfung</strong>: Kontrast,
+                Screenreader-Kompatibilität
+              </li>
+              <li>
+                <strong>Hard Refresh</strong>: <code>Ctrl+F5</code> (Windows)
+                oder <code>Cmd+Shift+R</code> (Mac)
+              </li>
+            </ul>
+            <blockquote>
+              <p>
+                <strong>Tipp</strong>: Öffnen mit <code>F12</code> oder
+                Rechtsklick → <em>Untersuchen</em>
+              </p>
+            </blockquote>
+            <div class="screenshots">
+              <img src="image-3.png" alt="Browser DevTools Interface" />
+            </div>
+          </section>
         </section>
 
+        <!-- Markdown -->
         <section>
-          <h3>Einfaches GitHub-Setup</h3>
-          <ul>
-            <li>Erstellen Sie ein kostenloses Konto auf <a href="https://github.com/" target="_blank">GitHub</a></li>
-            <li>Installieren Sie <a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a> für einfaches Veröffentlichen</li>
-            <li>Veröffentichen Sie ihre Seite mit <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></li>
-          </ul>
-          <div class="screenshots">
-            <img src="image-2.png" alt="GitHub Desktop Interface">
-          </div>
-        </section>
+          <section>
+            <h2>Markdown für akademische Dokumentation</h2>
+            <blockquote>
+              <p>
+                <a
+                  href="https://www.markdownguide.org/cheat-sheet/"
+                  target="_blank"
+                  >https://www.markdownguide.org/cheat-sheet/</a
+                >
+              </p>
+            </blockquote>
+          </section>
 
-        <section>
-          <h3>Browser DevTools – einfache Nutzung</h3>
-          <ul>
-            <li><strong>Inspektor</strong>: HTML & CSS anschauen</li>
-            <li><strong>Zugänglichkeitsprüfung</strong>: Kontrast, Screenreader-Kompatibilität</li>
-            <li><strong>Hard Refresh</strong>: <code>Ctrl+F5</code> (Windows) oder <code>Cmd+Shift+R</code> (Mac)</li>
-          </ul>
-          <blockquote>
-            <p><strong>Tipp</strong>: Öffnen mit <code>F12</code> oder Rechtsklick → <em>Untersuchen</em></p>
-          </blockquote>
-          <div class="screenshots">
-            <img src="image-3.png" alt="Browser DevTools Interface">
-          </div>
-        </section>
-      </section>
+          <section>
+            <h3>Was ist Markdown?</h3>
+            <ul>
+              <li>Leichte <strong>Auszeichnungssprache</strong></li>
+              <li>
+                Perfekt für <strong>README</strong>,
+                <strong>Paper Drafts</strong>,
+                <strong>Forschungsnotizen</strong> und unverzichtbar im Umgang
+                mit LLMs
+              </li>
+              <li>
+                Direkt auf GitHub, GitLab, und vielen weiteren Plattformen
+                gerendert
+              </li>
+            </ul>
+          </section>
 
-      <!-- Markdown -->
-      <section>
-        <section>
-          <h2>Markdown für akademische Dokumentation</h2>
-          <blockquote>
-            <p><a href="https://www.markdownguide.org/cheat-sheet/" target="_blank">https://www.markdownguide.org/cheat-sheet/</a></p>
-          </blockquote>
-        </section>
-
-        <section>
-          <h3>Was ist Markdown?</h3>
-          <ul>
-            <li>Leichte <strong>Auszeichnungssprache</strong></li>
-            <li>Perfekt für <strong>README</strong>, <strong>Paper Drafts</strong>, <strong>Forschungsnotizen</strong> und unverzichtbar im Umgang mit LLMs</li>
-            <li>Direkt auf GitHub, GitLab, und vielen weiteren Plattformen gerendert</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Grundlegende Syntax</h3>
-          <div class="side-by-side">
-            <div>
-              <h4>Markdown-Code</h4>
-              <pre><code class="markdown"># Hauptüberschrift
+          <section>
+            <h3>Grundlegende Syntax</h3>
+            <div class="side-by-side">
+              <div>
+                <h4>Markdown-Code</h4>
+                <pre><code class="markdown"># Hauptüberschrift
 
 ## Unterüberschrift
 
@@ -452,156 +570,254 @@ document.addEventListener("DOMContentLoaded", function () {
 | Jahr | Ereignis         | Quelle      |
 | ---- | ---------------- | ----------- |
 | 1942 | Brief an Jaspers | Archiv Wien |</code></pre>
+              </div>
+              <div>
+                <h4>Ergebnis</h4>
+                <h1 style="font-size: 1.5em; margin-bottom: 0.3em">
+                  Hauptüberschrift
+                </h1>
+                <h2 style="font-size: 1.3em; margin-bottom: 0.3em">
+                  Unterüberschrift
+                </h2>
+                <ul>
+                  <li>Listenpunkt</li>
+                  <li><strong>Fett</strong> und <em>Kursiv</em></li>
+                </ul>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Jahr</th>
+                      <th>Ereignis</th>
+                      <th>Quelle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1942</td>
+                      <td>Brief an Jaspers</td>
+                      <td>Archiv Wien</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div>
-              <h4>Ergebnis</h4>
-              <h1 style="font-size: 1.5em; margin-bottom: 0.3em;">Hauptüberschrift</h1>
-              <h2 style="font-size: 1.3em; margin-bottom: 0.3em;">Unterüberschrift</h2>
-              <ul>
-                <li>Listenpunkt</li>
-                <li><strong>Fett</strong> und <em>Kursiv</em></li>
-              </ul>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Jahr</th>
-                    <th>Ereignis</th>
-                    <th>Quelle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1942</td>
-                    <td>Brief an Jaspers</td>
-                    <td>Archiv Wien</td>
-                  </tr>
-                </tbody>
-              </table>
+          </section>
+
+          <section>
+            <h3>Erweiterte Markdown-Features</h3>
+            <div class="highlight-box">
+              <p>
+                <strong>MathJax</strong>: $E = mc^2$ • Fußnoten:
+                <code>[^1]</code>
+              </p>
+              <p><strong>Zitationssysteme</strong>: [@Smith2022, p. 45]</p>
             </div>
-          </div>
+          </section>
+
+          <section>
+            <h3>Richtiges Kopieren und Einfügen</h3>
+            <ul>
+              <li>
+                <strong>Einfaches Einfügen</strong>: <code>Ctrl+V</code> (behält
+                Formatierung)
+              </li>
+              <li>
+                <strong>Einfügen ohne Formatierung</strong>:
+                <code>Ctrl+Shift+V</code> (nur Text)
+              </li>
+              <li>
+                <strong>Als Markdown kopieren</strong>: In Google Docs →
+                Rechtsklick → "Als Markdown kopieren/einfügen"
+              </li>
+              <li>
+                <strong>Formatierungsprobleme vermeiden</strong>: Texte immer
+                zunächst in einem einfachen Texteditor (z.B. Notepad)
+                zwischenspeichern
+              </li>
+            </ul>
+            <div class="highlight-box small-text">
+              <p><strong>Wichtig:</strong> Word nicht benutzen!!</p>
+            </div>
+          </section>
         </section>
 
+        <!-- Vibe Coding -->
         <section>
-          <h3>Erweiterte Markdown-Features</h3>
-          <div class="highlight-box">
-            <p><strong>MathJax</strong>: $E = mc^2$ • Fußnoten: <code>[^1]</code></p>
-            <p><strong>Zitationssysteme</strong>: [@Smith2022, p. 45]</p>
-          </div>
+          <section>
+            <h2>Vibe Coding mit KI</h2>
+            <blockquote>
+              <p>
+                <a
+                  href="https://dhcraft.org/excellence/blog/Vibe-Coding"
+                  target="_blank"
+                  >https://dhcraft.org/excellence/blog/Vibe-Coding</a
+                >
+              </p>
+            </blockquote>
+          </section>
+
+          <section>
+            <h3>Was ist Vibe Coding?</h3>
+            <blockquote>
+              <p>
+                "Vibe Coding (oder Vibecoding) ist eine Programmiertechnik,
+                welche sich ganz auf Künstliche Intelligenz (KI) zum Generieren
+                des Quellcodes verlässt und somit Programmierung auch für
+                Unerfahrene zugänglich macht."
+              </p>
+              <p>— <cite>Wikipedia</cite></p>
+            </blockquote>
+            <p>
+              Der Begriff wurde von Andrej Karpathy (ehemaliger KI-Leiter bei
+              Tesla und Gründer von OpenAI) im Februar 2025 geprägt und
+              beschreibt einen Paradigmenwechsel in der Softwareentwicklung.
+            </p>
+          </section>
+
+          <section>
+            <h3>Charakteristiken des Vibe Codings</h3>
+            <ul>
+              <li>
+                <strong>Natürliche Sprache:</strong> Programmieren durch
+                Beschreibung statt manuellem Coden
+              </li>
+              <li>
+                <strong>Schnelle Iteration:</strong> Rasches Prototyping und
+                Experimentieren
+              </li>
+              <li>
+                <strong>Abstraktion:</strong> Fokus auf die Absicht statt auf
+                technische Details
+              </li>
+              <li>
+                <strong>Kollaboration mit KI:</strong> Mensch und Maschine als
+                Team
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Konzept</h3>
+            <ol>
+              <li>
+                <strong>Absicht beschreiben</strong> (Prompt) – kein manueller
+                Code nötig
+              </li>
+              <li><strong>KI liefert</strong> Vorschlag + Erklärung</li>
+              <li><strong>Testen und Anpassen</strong> in kleinen Schritten</li>
+            </ol>
+            <div class="highlight-box">
+              <p>
+                <strong>Tipp</strong>: Beschreiben Sie Ihr Vorhaben in klaren
+                Fachbegriffen (z.B. "digitale Edition", "annotierte
+                Bibliographie").
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Typischer Vibe Coding Workflow</h3>
+            <div class="screenshots">
+              <img src="image.png" alt="Vibe Coding Workflow Diagram" />
+            </div>
+            <ol class="small-text">
+              <li>
+                <strong>Konzeptualisierung:</strong> Beschreibung des Ziels in
+                natürlicher Sprache →
+                <a
+                  href="https://dhcraft.org/excellence/blog/Promptotyping"
+                  target="_blank"
+                  >Promptotyping</a
+                >
+                Markdown Documents!
+              </li>
+              <li>
+                <strong>KI-Generierung:</strong> Erzeugung eines ersten
+                Code-Entwurfs
+              </li>
+              <li>
+                <strong>Iterative Verfeinerung:</strong> Feedback und
+                Anpassungen
+              </li>
+              <li>
+                <strong>Überprüfung und Finalisierung:</strong> Tests und
+                Optimierungen
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Beispiel: Promptotyping</h3>
+            <div class="screenshots">
+              <img
+                src="image5.png"
+                alt="Claude Interface mit Promptotyping Beispiel"
+              />
+            </div>
+          </section>
         </section>
 
+        <!-- Vom Code zur Website -->
         <section>
-          <h3>Richtiges Kopieren und Einfügen</h3>
+          <section>
+            <h2>Vom Code zur Website - Deployment</h2>
+            <h3>Frontend vs. Backend</h3>
+            <ul>
+              <li>
+                <strong>Frontend-Only</strong>: Statische Daten, einfache
+                Präsentation - <strong>meist ideal</strong>
+              </li>
+              <li>
+                <strong>Backend</strong>: Nur nötig für komplexe Datenbanken
+                oder interaktive Nutzereingaben
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>GitHub Pages (kostenlos)</h3>
+            <ol>
+              <li>Repo → <strong>Settings → Pages</strong></li>
+              <li>Branch <code>main</code> wählen + <strong>Save</strong></li>
+              <li>
+                URL: <code>https://&lt;user&gt;.github.io/&lt;repo&gt;/</code>
+              </li>
+            </ol>
+            <div class="screenshots">
+              <img src="image-4.png" alt="GitHub Pages Setup Interface" />
+            </div>
+            <p>
+              Alternative: <strong>Netlify</strong> (mit einfachem Drag-and-Drop
+              Upload)
+            </p>
+          </section>
+        </section>
+
+        <!-- Beispielprojekte -->
+        <section>
+          <h2>Beispielprojekte für Geisteswissenschaften</h2>
           <ul>
-            <li><strong>Einfaches Einfügen</strong>: <code>Ctrl+V</code> (behält Formatierung)</li>
-            <li><strong>Einfügen ohne Formatierung</strong>: <code>Ctrl+Shift+V</code> (nur Text)</li>
-            <li><strong>Als Markdown kopieren</strong>: In Google Docs → Rechtsklick → "Als Markdown kopieren/einfügen"</li>
-            <li><strong>Formatierungsprobleme vermeiden</strong>: Texte immer zunächst in einem einfachen Texteditor (z.B. Notepad) zwischenspeichern</li>
+            <li>
+              <strong>Digitale Edition</strong>: Historische Texte mit
+              Annotationen
+            </li>
+            <li>
+              <strong>Interaktiver Zeitstrahl</strong>: Kulturelle oder
+              historische Ereignisse
+            </li>
+            <li>
+              <strong>Literarisches Netzwerk</strong>: Beziehungen zwischen
+              Autoren visualisieren
+            </li>
+            <li>
+              <strong>Digitale Ausstellung</strong>: Artefakte mit Kontext
+              präsentieren
+            </li>
           </ul>
+
           <div class="highlight-box small-text">
-            <p><strong>Wichtig:</strong> Word nicht benutzen!!</p>
-          </div>
-        </section>
-      </section>
-
-      <!-- Vibe Coding -->
-      <section>
-        <section>
-          <h2>Vibe Coding mit KI</h2>
-          <blockquote>
-            <p><a href="https://dhcraft.org/excellence/blog/Vibe-Coding" target="_blank">https://dhcraft.org/excellence/blog/Vibe-Coding</a></p>
-          </blockquote>
-        </section>
-
-        <section>
-          <h3>Was ist Vibe Coding?</h3>
-          <blockquote>
-            <p>"Vibe Coding (oder Vibecoding) ist eine Programmiertechnik, welche sich ganz auf Künstliche Intelligenz (KI) zum Generieren des Quellcodes verlässt und somit Programmierung auch für Unerfahrene zugänglich macht."</p>
-            <p>— <cite>Wikipedia</cite></p>
-          </blockquote>
-          <p>Der Begriff wurde von Andrej Karpathy (ehemaliger KI-Leiter bei Tesla und Gründer von OpenAI) im Februar 2025 geprägt und beschreibt einen Paradigmenwechsel in der Softwareentwicklung.</p>
-        </section>
-
-        <section>
-          <h3>Charakteristiken des Vibe Codings</h3>
-          <ul>
-            <li><strong>Natürliche Sprache:</strong> Programmieren durch Beschreibung statt manuellem Coden</li>
-            <li><strong>Schnelle Iteration:</strong> Rasches Prototyping und Experimentieren</li>
-            <li><strong>Abstraktion:</strong> Fokus auf die Absicht statt auf technische Details</li>
-            <li><strong>Kollaboration mit KI:</strong> Mensch und Maschine als Team</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Konzept</h3>
-          <ol>
-            <li><strong>Absicht beschreiben</strong> (Prompt) – kein manueller Code nötig</li>
-            <li><strong>KI liefert</strong> Vorschlag + Erklärung</li>
-            <li><strong>Testen und Anpassen</strong> in kleinen Schritten</li>
-          </ol>
-          <div class="highlight-box">
-            <p><strong>Tipp</strong>: Beschreiben Sie Ihr Vorhaben in klaren Fachbegriffen (z.B. "digitale Edition", "annotierte Bibliographie").</p>
-          </div>
-        </section>
-
-        <section>
-          <h3>Typischer Vibe Coding Workflow</h3>
-          <div class="screenshots">
-            <img src="image.png" alt="Vibe Coding Workflow Diagram">
-          </div>
-          <ol class="small-text">
-            <li><strong>Konzeptualisierung:</strong> Beschreibung des Ziels in natürlicher Sprache → <a href="https://dhcraft.org/excellence/blog/Promptotyping" target="_blank">Promptotyping</a> Markdown Documents!</li>
-            <li><strong>KI-Generierung:</strong> Erzeugung eines ersten Code-Entwurfs</li>
-            <li><strong>Iterative Verfeinerung:</strong> Feedback und Anpassungen</li>
-            <li><strong>Überprüfung und Finalisierung:</strong> Tests und Optimierungen</li>
-          </ol>
-        </section>
-
-        <section>
-          <h3>Beispiel: Promptotyping</h3>
-          <div class="screenshots">
-            <img src="image5.png" alt="Claude Interface mit Promptotyping Beispiel">
-          </div>
-        </section>
-      </section>
-
-      <!-- Vom Code zur Website -->
-      <section>
-        <section>
-          <h2>Vom Code zur Website - Deployment</h2>
-          <h3>Frontend vs. Backend</h3>
-          <ul>
-            <li><strong>Frontend-Only</strong>: Statische Daten, einfache Präsentation - <strong>meist ideal</strong></li>
-            <li><strong>Backend</strong>: Nur nötig für komplexe Datenbanken oder interaktive Nutzereingaben</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>GitHub Pages (kostenlos)</h3>
-          <ol>
-            <li>Repo → <strong>Settings → Pages</strong></li>
-            <li>Branch <code>main</code> wählen + <strong>Save</strong></li>
-            <li>URL: <code>https://&lt;user&gt;.github.io/&lt;repo&gt;/</code></li>
-          </ol>
-          <div class="screenshots">
-            <img src="image-4.png" alt="GitHub Pages Setup Interface">
-          </div>
-          <p>Alternative: <strong>Netlify</strong> (mit einfachem Drag-and-Drop Upload)</p>
-        </section>
-      </section>
-
-      <!-- Beispielprojekte -->
-      <section>
-        <h2>Beispielprojekte für Geisteswissenschaften</h2>
-        <ul>
-          <li><strong>Digitale Edition</strong>: Historische Texte mit Annotationen</li>
-          <li><strong>Interaktiver Zeitstrahl</strong>: Kulturelle oder historische Ereignisse</li>
-          <li><strong>Literarisches Netzwerk</strong>: Beziehungen zwischen Autoren visualisieren</li>
-          <li><strong>Digitale Ausstellung</strong>: Artefakte mit Kontext präsentieren</li>
-        </ul>
-
-        <div class="highlight-box small-text">
-          <h4>Typische Projektstruktur</h4>
-          <pre><code class="text">digitale-edition/
+            <h4>Typische Projektstruktur</h4>
+            <pre><code class="text">digitale-edition/
 ├── index.html
 ├── css/
 │   └── style.css
@@ -610,267 +826,448 @@ document.addEventListener("DOMContentLoaded", function () {
 ├── images/
 │   └── archiv-foto.jpg
 └── README.md</code></pre>
-        </div>
-      </section>
-
-      <!-- Barrierefreiheit -->
-      <section>
-        <h2>Barrierefreiheit (a11y) Basics</h2>
-        <ul>
-          <li><strong>Warum?</strong> Inklusion, Forschungszugang für alle</li>
-          <li>Verwenden Sie <strong>semantische Tags</strong> (z.B. <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>)</li>
-          <li>Jedes Bild benötigt <strong><code>alt</code>-Text</strong></li>
-          <li>Stellen Sie <strong>guten Kontrast</strong> sicher</li>
-          <li>Machen Sie Navigation <strong>tastaturzugänglich</strong></li>
-        </ul>
-        <div class="highlight-box">
-          <p>
-            <strong>a11y</strong> = "accessibility" (11 Buchstaben zwischen a und y)
-          </p>
-        </div>
-      </section>
-
-      <!-- Vibe Working -->
-      <section>
-        <section>
-          <h2>Vibe Working in der Forschung</h2>
-          <blockquote>
-            <p><a href="https://blog.google/technology/ai/thomas-story-alexander-disease/" target="_blank">https://blog.google/technology/ai/thomas-story-alexander-disease/</a></p>
-          </blockquote>
-        </section>
-
-        <section>
-          <h3>Von Vibe Coding zu Vibe Working</h3>
-          <p>Während Vibe Coding sich auf Programmierung konzentriert, beschreibt "Vibe Working" einen breiteren Ansatz der KI-gestützten Ideenentwicklung und Kreativarbeit in der Forschung.</p>
-        </section>
-
-        <section>
-          <h3>Kernaspekte des Vibe Working</h3>
-          <ul>
-            <li><strong>Ideenfindung:</strong> Umwandlung vager Gedanken in strukturierte Konzepte</li>
-            <li><strong>Kollaboration mit KI:</strong> KI als Forschungspartner, nicht nur als Werkzeug</li>
-            <li><strong>Iterativer Prozess:</strong> Kontinuierliche Verfeinerung durch Dialog</li>
-            <li><strong>Interdisziplinarität:</strong> Verbindung verschiedener Fachgebiete</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Anwendungen in der Forschung</h3>
-          <ul>
-            <li><strong>Literaturrecherche:</strong> Zusammenfassung und Analyse von Papers → <em>Deep Research</em></li>
-            <li><strong>Datenanalyse:</strong> Explorative Untersuchung und Visualisierung</li>
-            <li><strong>Hypothesenbildung:</strong> Generierung neuer Forschungsfragen</li>
-            <li><strong>Methodenentwicklung:</strong> Planung experimenteller Designs</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Gefahren</h3>
-          <div class="highlight-box">
-            <p><strong>Halluzinationen!</strong></p>
           </div>
         </section>
-      </section>
 
-      <!-- Praktische Tipps -->
-      <section>
+        <!-- Barrierefreiheit -->
         <section>
-          <h2>Praktische Tipps & Tricks</h2>
-          <h3>Browser-Tipps</h3>
+          <h2>Barrierefreiheit (a11y) Basics</h2>
           <ul>
-            <li><strong>Hard Refresh</strong>: Löscht den Cache für die aktuelle Seite
-              <ul class="small-text">
-                <li>Windows: <code>Ctrl+F5</code> oder <code>Shift+F5</code></li>
-                <li>Mac: <code>Cmd+Shift+R</code></li>
-              </ul>
+            <li>
+              <strong>Warum?</strong> Inklusion, Forschungszugang für alle
             </li>
-            <li>Unverzichtbar bei Änderungen an CSS/JS, die nicht sofort sichtbar werden</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Kopieren und Einfügen</h3>
-          <ul>
-            <li><strong>Probleme mit Code-Formaten</strong>: Achten Sie auf versteckte Formatierungen</li>
-            <li><strong>Einfügen ohne Formatierung</strong>:
-              <ul class="small-text">
-                <li>Windows: <code>Ctrl+Shift+V</code></li>
-                <li>Mac: <code>Cmd+Shift+V</code></li>
-              </ul>
+            <li>
+              Verwenden Sie <strong>semantische Tags</strong> (z.B.
+              <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>)
             </li>
-            <li><strong>Als Markdown kopieren</strong>:
-              <ul class="small-text">
-                <li>In Google Docs: Rechtsklick → "Als Markdown kopieren"</li>
-              </ul>
+            <li>
+              Jedes Bild benötigt <strong><code>alt</code>-Text</strong>
             </li>
-            <li>Verhindert Probleme mit inkonsistenter Formatierung</li>
+            <li>Stellen Sie <strong>guten Kontrast</strong> sicher</li>
+            <li>Machen Sie Navigation <strong>tastaturzugänglich</strong></li>
           </ul>
+          <div class="highlight-box">
+            <p>
+              <strong>a11y</strong> = "accessibility" (11 Buchstaben zwischen a
+              und y)
+            </p>
+          </div>
         </section>
 
+        <!-- Vibe Working -->
         <section>
-          <h3>Dateiverwaltung</h3>
-          <ul>
-            <li><strong>Konsistente Dateinamen</strong>: Keine Umlaute oder Leerzeichen in Datei- und Ordnernamen</li>
-            <li><strong>Bilder optimieren</strong>: Große Bilder vor dem Upload komprimieren (z.B. mit <a href="https://tinypng.com/" target="_blank">TinyPNG</a>) oder .webP nutzen</li>
-          </ul>
-        </section>
-      </section>
+          <section>
+            <h2>Vibe Working in der Forschung</h2>
+            <blockquote>
+              <p>
+                <a
+                  href="https://blog.google/technology/ai/thomas-story-alexander-disease/"
+                  target="_blank"
+                  >https://blog.google/technology/ai/thomas-story-alexander-disease/</a
+                >
+              </p>
+            </blockquote>
+          </section>
 
-      <!-- Weiterführende Ressourcen -->
-      <section>
+          <section>
+            <h3>Von Vibe Coding zu Vibe Working</h3>
+            <p>
+              Während Vibe Coding sich auf Programmierung konzentriert,
+              beschreibt "Vibe Working" einen breiteren Ansatz der KI-gestützten
+              Ideenentwicklung und Kreativarbeit in der Forschung.
+            </p>
+          </section>
+
+          <section>
+            <h3>Kernaspekte des Vibe Working</h3>
+            <ul>
+              <li>
+                <strong>Ideenfindung:</strong> Umwandlung vager Gedanken in
+                strukturierte Konzepte
+              </li>
+              <li>
+                <strong>Kollaboration mit KI:</strong> KI als Forschungspartner,
+                nicht nur als Werkzeug
+              </li>
+              <li>
+                <strong>Iterativer Prozess:</strong> Kontinuierliche
+                Verfeinerung durch Dialog
+              </li>
+              <li>
+                <strong>Interdisziplinarität:</strong> Verbindung verschiedener
+                Fachgebiete
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Anwendungen in der Forschung</h3>
+            <ul>
+              <li>
+                <strong>Literaturrecherche:</strong> Zusammenfassung und Analyse
+                von Papers → <em>Deep Research</em>
+              </li>
+              <li>
+                <strong>Datenanalyse:</strong> Explorative Untersuchung und
+                Visualisierung
+              </li>
+              <li>
+                <strong>Hypothesenbildung:</strong> Generierung neuer
+                Forschungsfragen
+              </li>
+              <li>
+                <strong>Methodenentwicklung:</strong> Planung experimenteller
+                Designs
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Gefahren</h3>
+            <div class="highlight-box">
+              <p><strong>Halluzinationen!</strong></p>
+            </div>
+          </section>
+        </section>
+
+        <!-- Praktische Tipps -->
         <section>
-          <h2>Weiterführende Ressourcen</h2>
-          <ul>
-            <li><a href="https://programminghistorian.org/de/" target="_blank">Programming Historian</a> - Tutorials für digitale Geisteswissenschaften</li>
-            <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a> - Web-Dokumentation</li>
-            <li><a href="https://www.a11yproject.com/" target="_blank">The A11y Project</a> - Barrierefreiheit</li>
-            <li><a href="https://www.zotero.org/support/dev/web_api/v3/start" target="_blank">Zotero Web Library API</a> - Bibliographien einbinden</li>
-          </ul>
+          <section>
+            <h2>Praktische Tipps & Tricks</h2>
+            <h3>Browser-Tipps</h3>
+            <ul>
+              <li>
+                <strong>Hard Refresh</strong>: Löscht den Cache für die aktuelle
+                Seite
+                <ul class="small-text">
+                  <li>
+                    Windows: <code>Ctrl+F5</code> oder <code>Shift+F5</code>
+                  </li>
+                  <li>Mac: <code>Cmd+Shift+R</code></li>
+                </ul>
+              </li>
+              <li>
+                Unverzichtbar bei Änderungen an CSS/JS, die nicht sofort
+                sichtbar werden
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Kopieren und Einfügen</h3>
+            <ul>
+              <li>
+                <strong>Probleme mit Code-Formaten</strong>: Achten Sie auf
+                versteckte Formatierungen
+              </li>
+              <li>
+                <strong>Einfügen ohne Formatierung</strong>:
+                <ul class="small-text">
+                  <li>Windows: <code>Ctrl+Shift+V</code></li>
+                  <li>Mac: <code>Cmd+Shift+V</code></li>
+                </ul>
+              </li>
+              <li>
+                <strong>Als Markdown kopieren</strong>:
+                <ul class="small-text">
+                  <li>In Google Docs: Rechtsklick → "Als Markdown kopieren"</li>
+                </ul>
+              </li>
+              <li>Verhindert Probleme mit inkonsistenter Formatierung</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Dateiverwaltung</h3>
+            <ul>
+              <li>
+                <strong>Konsistente Dateinamen</strong>: Keine Umlaute oder
+                Leerzeichen in Datei- und Ordnernamen
+              </li>
+              <li>
+                <strong>Bilder optimieren</strong>: Große Bilder vor dem Upload
+                komprimieren (z.B. mit
+                <a href="https://tinypng.com/" target="_blank">TinyPNG</a>) oder
+                .webP nutzen
+              </li>
+            </ul>
+          </section>
         </section>
 
+        <!-- Weiterführende Ressourcen -->
         <section>
-          <h3>Browser-basierte Tools</h3>
-          <ul>
-            <li><strong>Bolt.new</strong>: <a href="https://bolt.new/" target="_blank">https://bolt.new/</a></li>
-            <li><strong>Lovable</strong>: <a href="https://lovable.ai/" target="_blank">https://lovable.ai/</a></li>
-            <li><strong>Replit</strong>: <a href="https://replit.com/" target="_blank">https://replit.com/</a></li>
-            <li><strong>Tempo Labs</strong>: <a href="https://www.tempo.new/" target="_blank">https://www.tempo.new/</a></li>
-            <li><strong>v0 by Vercel</strong>: <a href="https://v0.dev/" target="_blank">https://v0.dev/</a></li>
-          </ul>
+          <section>
+            <h2>Weiterführende Ressourcen</h2>
+            <ul>
+              <li>
+                <a href="https://programminghistorian.org/de/" target="_blank"
+                  >Programming Historian</a
+                >
+                - Tutorials für digitale Geisteswissenschaften
+              </li>
+              <li>
+                <a href="https://developer.mozilla.org/" target="_blank"
+                  >MDN Web Docs</a
+                >
+                - Web-Dokumentation
+              </li>
+              <li>
+                <a href="https://www.a11yproject.com/" target="_blank"
+                  >The A11y Project</a
+                >
+                - Barrierefreiheit
+              </li>
+              <li>
+                <a
+                  href="https://www.zotero.org/support/dev/web_api/v3/start"
+                  target="_blank"
+                  >Zotero Web Library API</a
+                >
+                - Bibliographien einbinden
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Browser-basierte Tools</h3>
+            <ul>
+              <li>
+                <strong>Bolt.new</strong>:
+                <a href="https://bolt.new/" target="_blank"
+                  >https://bolt.new/</a
+                >
+              </li>
+              <li>
+                <strong>Lovable</strong>:
+                <a href="https://lovable.ai/" target="_blank"
+                  >https://lovable.ai/</a
+                >
+              </li>
+              <li>
+                <strong>Replit</strong>:
+                <a href="https://replit.com/" target="_blank"
+                  >https://replit.com/</a
+                >
+              </li>
+              <li>
+                <strong>Tempo Labs</strong>:
+                <a href="https://www.tempo.new/" target="_blank"
+                  >https://www.tempo.new/</a
+                >
+              </li>
+              <li>
+                <strong>v0 by Vercel</strong>:
+                <a href="https://v0.dev/" target="_blank">https://v0.dev/</a>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Desktop-Tools</h3>
+            <ul>
+              <li>
+                <strong>Cursor</strong>:
+                <a href="https://www.cursor.com/" target="_blank"
+                  >https://www.cursor.com/</a
+                >
+              </li>
+              <li>
+                <strong>Windsurf (Codeium)</strong>:
+                <a href="https://codeium.com/windsurf" target="_blank"
+                  >https://codeium.com/windsurf</a
+                >
+              </li>
+              <li>
+                <strong>Devin AI</strong>:
+                <a href="https://devin.ai/" target="_blank"
+                  >https://devin.ai/</a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Agentic Tools</h3>
+            <ul>
+              <li>
+                <strong>Claude Code (Anthropic)</strong>:
+                <a href="https://www.anthropic.com/claude-code" target="_blank"
+                  >https://www.anthropic.com/claude-code</a
+                >
+              </li>
+              <li>
+                <strong>Devin AI</strong>:
+                <a href="https://devin.ai/" target="_blank"
+                  >https://devin.ai/</a
+                >
+              </li>
+              <li>
+                <strong>Cursor Composer</strong>:
+                <a href="https://www.cursor.com/composer" target="_blank"
+                  >https://www.cursor.com/composer</a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Ressourcen zum Thema Vibe Coding</h3>
+            <ul class="small-text">
+              <li>
+                <strong>Andrej Karpathy's Tweet zu Vibe Coding</strong>:
+                <a
+                  href="https://twitter.com/karpathy/status/1753203762513936495"
+                  target="_blank"
+                  >https://twitter.com/karpathy/status/1753203762513936495</a
+                >
+              </li>
+              <li>
+                <strong>Vibe Coding Tools Vergleichsseite</strong>:
+                <a href="https://www.vibecodingtools.com/" target="_blank"
+                  >https://www.vibecodingtools.com/</a
+                >
+              </li>
+            </ul>
+          </section>
         </section>
 
+        <!-- Zusammenfassung -->
         <section>
-          <h3>Desktop-Tools</h3>
-          <ul>
-            <li><strong>Cursor</strong>: <a href="https://www.cursor.com/" target="_blank">https://www.cursor.com/</a></li>
-            <li><strong>Windsurf (Codeium)</strong>: <a href="https://codeium.com/windsurf" target="_blank">https://codeium.com/windsurf</a></li>
-            <li><strong>Devin AI</strong>: <a href="https://devin.ai/" target="_blank">https://devin.ai/</a></li>
-          </ul>
+          <h2>Zusammenfassung</h2>
+          <ol>
+            <li>
+              <strong>Präzise Beschreibungen ("Vokabular lernen")</strong>
+              führen zu besseren KI-Ergebnissen.
+            </li>
+            <li>
+              <strong>Markdown</strong> ist unverzichtbar in der Arbeit mit
+              LLMs.
+            </li>
+            <li>
+              <strong>GitHub Pages</strong> bietet kostenloses Hosting für
+              Forschungsergebnisse.
+            </li>
+            <li>
+              <strong>Barrierefreiheit</strong> ist essenziell für inklusive
+              Geisteswissenschaften.
+            </li>
+            <li>
+              <strong>Vibe Coding und Vibe Working</strong> bieten neue Wege,
+              mit KI zu kollaborieren.
+            </li>
+          </ol>
+          <div class="highlight-box">
+            <p>Vielen Dank für Ihre Aufmerksamkeit!</p>
+          </div>
         </section>
-
-        <section>
-          <h3>Agentic Tools</h3>
-          <ul>
-            <li><strong>Claude Code (Anthropic)</strong>: <a href="https://www.anthropic.com/claude-code" target="_blank">https://www.anthropic.com/claude-code</a></li>
-            <li><strong>Devin AI</strong>: <a href="https://devin.ai/" target="_blank">https://devin.ai/</a></li>
-            <li><strong>Cursor Composer</strong>: <a href="https://www.cursor.com/composer" target="_blank">https://www.cursor.com/composer</a></li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Ressourcen zum Thema Vibe Coding</h3>
-          <ul class="small-text">
-            <li><strong>Andrej Karpathy's Tweet zu Vibe Coding</strong>: <a href="https://twitter.com/karpathy/status/1753203762513936495" target="_blank">https://twitter.com/karpathy/status/1753203762513936495</a></li>
-            <li><strong>Vibe Coding Tools Vergleichsseite</strong>: <a href="https://www.vibecodingtools.com/" target="_blank">https://www.vibecodingtools.com/</a></li>
-          </ul>
-        </section>
-      </section>
-
-      <!-- Zusammenfassung -->
-      <section>
-        <h2>Zusammenfassung</h2>
-        <ol>
-          <li><strong>Präzise Beschreibungen ("Vokabular lernen")</strong> führen zu besseren KI-Ergebnissen.</li>
-          <li><strong>Markdown</strong> ist unverzichtbar in der Arbeit mit LLMs.</li>
-          <li><strong>GitHub Pages</strong> bietet kostenloses Hosting für Forschungsergebnisse.</li>
-          <li><strong>Barrierefreiheit</strong> ist essenziell für inklusive Geisteswissenschaften.</li>
-          <li><strong>Vibe Coding und Vibe Working</strong> bieten neue Wege, mit KI zu kollaborieren.</li>
-        </ol>
-        <div class="highlight-box">
-          <p>Vielen Dank für Ihre Aufmerksamkeit!</p>
-        </div>
-      </section>
+      </div>
     </div>
-  </div>
 
-  <!-- Reveal.js Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/markdown/markdown.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
+    <!-- Reveal.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
 
-  <!-- Initialization -->
-  <script>
+    <!-- Initialization -->
+    <script>
+      Reveal.initialize({
+        // Presentation settings
+        width: 1200,
+        height: 700,
+        margin: 0.1,
+        minScale: 0.5,
+        maxScale: 2.0,
 
+        // Display controls in the bottom right corner
+        controls: true,
 
-    Reveal.initialize({
-      // Presentation settings
-      width: 1200,
-      height: 700,
-      margin: 0.1,
-      minScale: 0.5,
-      maxScale: 2.0,
+        // Display a presentation progress bar
+        progress: true,
 
-      // Display controls in the bottom right corner
-      controls: true,
+        // Display the page number of the current slide
+        slideNumber: "c/t",
 
-      // Display a presentation progress bar
-      progress: true,
+        // Push each slide change to the browser history
+        history: true,
 
-      // Display the page number of the current slide
-      slideNumber: 'c/t',
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
 
-      // Push each slide change to the browser history
-      history: true,
+        // Enable the slide overview mode
+        overview: true,
 
-      // Enable keyboard shortcuts for navigation
-      keyboard: true,
+        // Vertical centering of slides
+        center: true,
 
-      // Enable the slide overview mode
-      overview: true,
+        // Enables touch navigation on devices with touch input
+        touch: true,
 
-      // Vertical centering of slides
-      center: true,
+        // Loop the presentation
+        loop: false,
 
-      // Enables touch navigation on devices with touch input
-      touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
 
-      // Loop the presentation
-      loop: false,
+        // Transition style
+        transition: "slide", // none/fade/slide/convex/concave/zoom
 
-      // Turns fragments on and off globally
-      fragments: true,
+        // Transition speed
+        transitionSpeed: "default", // default/fast/slow
 
-      // Transition style
-      transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: "fade",
 
-      // Transition speed
-      transitionSpeed: 'default', // default/fast/slow
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
 
-      // Transition style for full page slide backgrounds
-      backgroundTransition: 'fade',
+        // Plugins configuration
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.MathJax3,
+        ],
 
-      // Number of slides away from the current that are visible
-      viewDistance: 3,
+        // Math configuration
+        math: {
+          mathjax:
+            "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
+          config: "TeX-AMS_HTML-full",
+          tex2jax: {
+            inlineMath: [
+              ["$", "$"],
+              ["\\(", "\\)"],
+            ],
+            displayMath: [
+              ["$$", "$$"],
+              ["\\[", "\\]"],
+            ],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: "TeX",
+            skipTags: [
+              "script",
+              "noscript",
+              "style",
+              "textarea",
+              "pre",
+              "code",
+            ],
+            ignoreClass: "tex2jax_ignore",
+            processClass: "tex2jax_process",
+          },
+        },
 
-      // Plugins configuration
-      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
-
-      // Math configuration
-      math: {
-        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
-        config: 'TeX-AMS_HTML-full',
-        tex2jax: {
-          inlineMath: [['$','$'], ['\\(','\\)']],
-          displayMath: [['$$','$$'], ['\\[','\\]']],
-          balanceBraces: true,
-          processEscapes: false,
-          processRefs: true,
-          processEnvironments: true,
-          preview: 'TeX',
-          skipTags: ['script','noscript','style','textarea','pre','code'],
-          ignoreClass: 'tex2jax_ignore',
-          processClass: 'tex2jax_process'
-        }
-      },
-
-      // Highlight.js configuration
-      highlight: {
-        // Highlight.js default theme
-        highlightStyle: 'monokai'
-      }
-    });
-  </script>
-</body>
+        // Highlight.js configuration
+        highlight: {
+          // Highlight.js default theme
+          highlightStyle: "monokai",
+        },
+      });
+    </script>
+  </body>
 </html>
