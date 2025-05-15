@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Web-Entwicklung für Forscher*innen in den Geisteswissenschaften
-    </title>
+    <title>Web-Entwicklung für Forscher*innen</title>
 
     <!-- Reveal.js CSS -->
     <link
@@ -24,6 +22,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css"
     />
 
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Custom styling for academic, light theme -->
     <style>
       :root {
@@ -31,6 +37,11 @@
         --heading-color: #1c3a70;
         --text-color: #333;
         --light-accent: #e8f0fe;
+        --code-bg: #272822;
+        --code-text: #f8f8f2;
+        --inline-code-bg: #f0f0f0;
+        --inline-code-text: #333;
+        --inline-code-border: #e0e0e0;
       }
 
       .reveal {
@@ -46,6 +57,8 @@
         font-family: "Lato", "Helvetica Neue", sans-serif;
         color: var(--heading-color);
         letter-spacing: -0.025em;
+        text-align: center;
+        margin-bottom: 0.5em;
       }
 
       .reveal h1 {
@@ -55,49 +68,62 @@
 
       .reveal h2 {
         font-size: 1.6em;
-        margin-bottom: 0.5em;
       }
 
+      /* Center all content in slides */
+      .reveal .slides section {
+        text-align: center;
+      }
+
+      /* Fix list display for proper centering */
       .reveal ul,
       .reveal ol {
-        display: block;
-        margin-left: 2em;
+        display: inline-block;
+        text-align: left;
+        margin: 0 auto;
+        padding-left: 1em;
+        width: auto;
       }
 
       .reveal li {
         margin-bottom: 0.5em;
+        text-align: left;
       }
 
       /* Fixed code block styling with single scrollbar */
       .reveal pre {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        border-radius: 5px; /* Standardized radius */
-        background-color: #272822; /* Monokai's standard background */
-        margin: 15px 0;
+        border-radius: 5px;
+        background-color: var(--code-bg);
+        margin: 15px auto;
         border: 1px solid #3a3a3a;
-        overflow: hidden; /* Prevents double scrollbars */
+        overflow: hidden;
         position: relative;
+        max-width: 90%;
+        text-align: left;
       }
 
       .reveal pre code {
         padding: 20px;
         line-height: 1.5;
-        background-color: transparent; /* Let the pre background show */
-        color: #f8f8f2; /* Monokai's standard text color - light */
+        background-color: transparent;
+        color: var(--code-text);
         display: block;
-        overflow: auto; /* Single scrollable element */
-        max-height: 400px; /* Consistent height */
+        overflow: auto;
+        max-height: min(400px, 70vh); /* Responsive height */
         white-space: pre;
         word-wrap: normal;
+        font-size: 0.9em;
       }
 
       /* For inline code, keep it light but distinct */
       .reveal code:not(pre code) {
-        background-color: #f0f0f0;
-        color: #333;
+        background-color: var(--inline-code-bg);
+        color: var(--inline-code-text);
         padding: 0.2em 0.4em;
         border-radius: 3px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--inline-code-border);
+        font-size: 0.9em;
       }
 
       .reveal blockquote {
@@ -107,6 +133,9 @@
         background: var(--light-accent);
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         border-radius: 5px;
+        text-align: left;
+        margin: 0 auto;
+        max-width: 90%;
       }
 
       .reveal .progress {
@@ -126,9 +155,12 @@
       .reveal .footer {
         position: absolute;
         bottom: 10px;
-        left: 10px;
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 0.5em;
         color: #999;
+        text-align: center;
+        width: 90%;
       }
 
       /* Styling for highlighted lines in code blocks */
@@ -141,18 +173,27 @@
 
       /* Custom styling for this presentation */
       .reveal .screenshots img {
-        max-height: 70vh;
+        max-height: 50vh;
+        max-width: 90%;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         border-radius: 5px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: block;
       }
 
       .reveal .side-by-side {
         display: flex;
         gap: 20px;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0 auto;
+        max-width: 90%;
       }
 
       .reveal .side-by-side > div {
         flex: 1;
+        min-width: 0; /* Prevents flex items from overflowing */
       }
 
       .reveal .small-text {
@@ -168,12 +209,16 @@
         padding: 15px;
         border-radius: 5px;
         border-left: 4px solid var(--main-color);
+        margin: 0 auto;
+        max-width: 90%;
+        text-align: left;
       }
 
       /* Style tables */
       .reveal table {
         margin: 1em auto;
         border-collapse: collapse;
+        max-width: 90%;
       }
 
       .reveal table th,
@@ -191,22 +236,88 @@
       /* Images */
       .reveal img {
         max-height: 70vh;
-        max-width: 100%;
+        max-width: 90%;
         object-fit: contain;
+        margin: 0 auto;
+        display: block;
       }
 
-      /* Responsive design adjustments */
+      /* Responsive adjustments */
       @media (max-width: 768px) {
-        .reveal .side-by-side {
+        .reveal {
+          font-size: 24px;
+        }
+
+        .reveal h1 {
+          font-size: 1.8em;
+        }
+
+        .reveal h2 {
+          font-size: 1.4em;
+        }
+
+        .reveal h3 {
+          font-size: 1.2em;
+        }
+
+        .reveal .slides section {
+          box-sizing: border-box;
+          display: flex;
           flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+        }
+
+        .reveal pre {
+          max-width: 100%;
         }
 
         .reveal pre code {
-          max-height: 300px; /* Smaller on mobile */
+          padding: 15px;
+          font-size: 0.8em;
         }
 
-        .reveal {
-          font-size: 28px; /* Slightly smaller text on mobile */
+        .reveal .side-by-side {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .reveal ul,
+        .reveal ol {
+          width: 90%;
+          max-width: 90%;
+          padding-left: 1.5em;
+          padding-right: 0.5em;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: left;
+          box-sizing: border-box;
+        }
+
+        .reveal li {
+          margin-bottom: 0.4em;
+          word-wrap: break-word;
+          width: 100%;
+        }
+
+        .reveal a {
+          word-wrap: break-word;
+          hyphens: auto;
+        }
+
+        .reveal blockquote {
+          padding: 0.8em;
+          width: 90%;
+        }
+
+        .reveal .highlight-box {
+          padding: 10px;
+          width: 90%;
+        }
+
+        .reveal img {
+          max-width: 90%;
         }
       }
     </style>
@@ -216,17 +327,15 @@
       <div class="slides">
         <!-- Title Slide -->
         <section>
-          <h1>
-            Web-Entwicklung für Forscher*innen in den Geisteswissenschaften
-          </h1>
+          <h1>Web-Entwicklung für Forscher*innen</h1>
           <h3>
             Grundlagen & KI-gestützte Entwicklung mit
-            <strong>Vibe Coding</strong>
+            <strong>"Vibe Coding"</strong>
           </h3>
           <p>
             <small
-              >Ein praxisorientierter Workshop für Geisteswissenschaftler*innen
-              ohne Web-Entwicklungserfahrung</small
+              >Ein praxisorientierter Workshop für Forscher*innen ohne
+              Web-Entwicklungserfahrung</small
             >
           </p>
         </section>
@@ -305,9 +414,7 @@
 
           <section>
             <h3>Beispiel: Grundaufbau für eine digitale Edition</h3>
-            <pre
-              class="scrollable-code"
-            ><code class="html">&lt;!DOCTYPE html&gt;
+            <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang="de"&gt;
   &lt;head&gt;
     &lt;meta charset="utf-8" /&gt;
@@ -361,7 +468,7 @@
 
           <section>
             <h3>Beispiel: CSS für eine digitale Edition</h3>
-            <pre class="scrollable-code"><code class="css">/* Grundlayout */
+            <pre><code class="css">/* Grundlayout */
 body {
   font-family: "Palatino", "Georgia", serif;
   line-height: 1.6;
@@ -372,7 +479,7 @@ body {
 }
 
 /* Spezifische Stile für Manuskripte */
-#manuscript {
+.manuscript {
   border: 1px solid #e0e0e0;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -417,9 +524,7 @@ body {
                 oder mit KI generieren
               </li>
             </ul>
-            <pre
-              class="scrollable-code"
-            ><code class="javascript">// Warten, bis das Dokument vollständig geladen ist
+            <pre><code class="javascript">// Warten, bis das Dokument vollständig geladen ist
 document.addEventListener("DOMContentLoaded", function () {
   // Alle Elemente mit der Klasse 'place' auswählen
   const placeElements = document.querySelectorAll(".place");
@@ -468,7 +573,10 @@ document.addEventListener("DOMContentLoaded", function () {
           <section>
             <h3>VSCode Extensions</h3>
             <div class="screenshots">
-              <img src="image-1.png" alt="VSCode Extensions Marketplace" />
+              <img
+                src="image-1.png"
+                alt="Screenshot der VSCode Extensions Marketplace mit empfohlenen Erweiterungen für Web-Entwicklung"
+              />
             </div>
           </section>
 
@@ -494,7 +602,10 @@ document.addEventListener("DOMContentLoaded", function () {
               </li>
             </ul>
             <div class="screenshots">
-              <img src="image-2.png" alt="GitHub Desktop Interface" />
+              <img
+                src="image-2.png"
+                alt="Benutzeroberfläche von GitHub Desktop mit Repository-Verwaltung und Commit-Historie"
+              />
             </div>
           </section>
 
@@ -518,7 +629,10 @@ document.addEventListener("DOMContentLoaded", function () {
               </p>
             </blockquote>
             <div class="screenshots">
-              <img src="image-3.png" alt="Browser DevTools Interface" />
+              <img
+                src="image-3.png"
+                alt="Browser DevTools mit geöffnetem DOM-Inspektor und CSS-Panel zur Analyse von Webseiten-Elementen"
+              />
             </div>
           </section>
         </section>
@@ -543,10 +657,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <ul>
               <li>Leichte <strong>Auszeichnungssprache</strong></li>
               <li>
-                Perfekt für <strong>README</strong>,
-                <strong>Paper Drafts</strong>,
-                <strong>Forschungsnotizen</strong> und unverzichtbar im Umgang
-                mit LLMs
+                Perfekt für <strong>README</strong>,<strong
+                  >Dokumentation</strong
+                >
+                und **<strong>unverzichtbar im Umgang mit LLMs </strong>**
               </li>
               <li>
                 Direkt auf GitHub, GitLab, und vielen weiteren Plattformen
@@ -718,12 +832,15 @@ document.addEventListener("DOMContentLoaded", function () {
           <section>
             <h3>Typischer Vibe Coding Workflow</h3>
             <div class="screenshots">
-              <img src="image.png" alt="Vibe Coding Workflow Diagram" />
+              <img
+                src="image.png"
+                alt="Diagramm des Vibe Coding Workflows: Konzeptualisierung → KI-Generierung → Iterative Verfeinerung → Überprüfung"
+              />
             </div>
             <ol class="small-text">
               <li>
                 <strong>Konzeptualisierung:</strong> Beschreibung des Ziels in
-                natürlicher Sprache →
+                <i>"natürlicher Sprache"</i> →
                 <a
                   href="https://dhcraft.org/excellence/blog/Promptotyping"
                   target="_blank"
@@ -751,7 +868,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="screenshots">
               <img
                 src="image5.png"
-                alt="Claude Interface mit Promptotyping Beispiel"
+                alt="Screenshot der Claude AI-Oberfläche mit Beispiel eines Promptotyping-Prozesses für ein digitales Geisteswissenschaften-Projekt"
               />
             </div>
           </section>
@@ -784,7 +901,10 @@ document.addEventListener("DOMContentLoaded", function () {
               </li>
             </ol>
             <div class="screenshots">
-              <img src="image-4.png" alt="GitHub Pages Setup Interface" />
+              <img
+                src="image-4.png"
+                alt="Screenshot der GitHub Pages Einstellungsseite mit ausgewähltem Branch und Deployment-Optionen"
+              />
             </div>
             <p>
               Alternative: <strong>Netlify</strong> (mit einfachem Drag-and-Drop
@@ -845,6 +965,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </li>
             <li>Stellen Sie <strong>guten Kontrast</strong> sicher</li>
             <li>Machen Sie Navigation <strong>tastaturzugänglich</strong></li>
+            <li>Testen Sie hier: <strong><a href="https://wave.webaim.org/">https://wave.webaim.org/</a></strong></li>
           </ul>
           <div class="highlight-box">
             <p>
@@ -926,6 +1047,19 @@ document.addEventListener("DOMContentLoaded", function () {
             <h3>Gefahren</h3>
             <div class="highlight-box">
               <p><strong>Halluzinationen!</strong></p>
+            </div>
+          </section>
+          <section>
+            <h3>Ausblick</h3>
+            <div class="highlight-box">
+              <p><strong><a href="https://www.youtube.com/watch?v=vC9nAosXrJw">Google DeepMind released AlphaEvolve: Wild breakthrough on Math after 56 years... </a></strong></p>
+              <p><strong><a href="https://www.youtube.com/watch?v=0j1HqEEDThc">Anthropic CEO Dario Amodei: "AI will write all of the Code within 12 months"</a></strong></p>
+            </div>
+            <div class="screenshots">
+              <p><img
+                src="image6.jpg"
+                alt="Ethan Mollick"
+              /></p>
             </div>
           </section>
         </section>
@@ -1017,6 +1151,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 >
                 - Barrierefreiheit
               </li>
+              <li><a href="https://wave.webaim.org/">https://wave.webaim.org/</a> - Barrierefreiheit Test Tool</li>
               <li>
                 <a
                   href="https://www.zotero.org/support/dev/web_api/v3/start"
@@ -1102,6 +1237,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 >
               </li>
               <li>
+                <strong>Manus</strong>:
+                <a href="https://manus.im/" target="_blank"
+                  >https://manus.im/</a
+                >
+              </li>
+              <li>
                 <strong>Cursor Composer</strong>:
                 <a href="https://www.cursor.com/composer" target="_blank"
                   >https://www.cursor.com/composer</a
@@ -1112,13 +1253,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
           <section>
             <h3>Ressourcen zum Thema Vibe Coding</h3>
-            <ul class="small-text">
+            <ul>
               <li>
                 <strong>Andrej Karpathy's Tweet zu Vibe Coding</strong>:
                 <a
-                  href="https://twitter.com/karpathy/status/1753203762513936495"
+                  href="https://x.com/karpathy/status/1886192184808149383"
                   target="_blank"
-                  >https://twitter.com/karpathy/status/1753203762513936495</a
+                  >https://x.com/karpathy/status/1886192184808149383</a
                 >
               </li>
               <li>
@@ -1156,9 +1297,7 @@ document.addEventListener("DOMContentLoaded", function () {
               mit KI zu kollaborieren.
             </li>
           </ol>
-          <div class="highlight-box">
-            <p>Vielen Dank für Ihre Aufmerksamkeit!</p>
-          </div>
+
         </section>
       </div>
     </div>
@@ -1173,53 +1312,29 @@ document.addEventListener("DOMContentLoaded", function () {
     <!-- Initialization -->
     <script>
       Reveal.initialize({
-        // Presentation settings
-        width: 1200,
-        height: 700,
+        // Display settings
+        width: "100%",
+        height: "100%",
         margin: 0.1,
         minScale: 0.5,
         maxScale: 2.0,
 
-        // Display controls in the bottom right corner
+        // Controls
         controls: true,
-
-        // Display a presentation progress bar
         progress: true,
-
-        // Display the page number of the current slide
         slideNumber: "c/t",
-
-        // Push each slide change to the browser history
         history: true,
-
-        // Enable keyboard shortcuts for navigation
         keyboard: true,
-
-        // Enable the slide overview mode
         overview: true,
-
-        // Vertical centering of slides
         center: true,
-
-        // Enables touch navigation on devices with touch input
         touch: true,
-
-        // Loop the presentation
         loop: false,
-
-        // Turns fragments on and off globally
         fragments: true,
 
-        // Transition style
-        transition: "slide", // none/fade/slide/convex/concave/zoom
-
-        // Transition speed
-        transitionSpeed: "default", // default/fast/slow
-
-        // Transition style for full page slide backgrounds
+        // Transitions
+        transition: "slide",
+        transitionSpeed: "default",
         backgroundTransition: "fade",
-
-        // Number of slides away from the current that are visible
         viewDistance: 3,
 
         // Plugins configuration
@@ -1235,38 +1350,19 @@ document.addEventListener("DOMContentLoaded", function () {
           mathjax:
             "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
           config: "TeX-AMS_HTML-full",
-          tex2jax: {
-            inlineMath: [
-              ["$", "$"],
-              ["\\(", "\\)"],
-            ],
-            displayMath: [
-              ["$$", "$$"],
-              ["\\[", "\\]"],
-            ],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: "TeX",
-            skipTags: [
-              "script",
-              "noscript",
-              "style",
-              "textarea",
-              "pre",
-              "code",
-            ],
-            ignoreClass: "tex2jax_ignore",
-            processClass: "tex2jax_process",
-          },
         },
 
         // Highlight.js configuration
         highlight: {
-          // Highlight.js default theme
           highlightStyle: "monokai",
         },
+      });
+
+      // Improve mobile experience
+      window.addEventListener("resize", function () {
+        setTimeout(function () {
+          Reveal.layout();
+        }, 100);
       });
     </script>
   </body>

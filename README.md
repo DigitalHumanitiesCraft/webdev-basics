@@ -19,7 +19,7 @@
 9. [Praktische Tipps & Tricks](#praktische-tipps--tricks)
 10. [Weiterführende Ressourcen](#weiterführende-ressourcen)
 11. [Zusammenfassung](#zusammenfassung)
-12. [Web-Vokabular für Geisteswissenschaftler\*innen](#web-vokabular-für-geisteswissenschaftlerinnen)
+12. [Web-Vokabular Übersicht](#umfassendes-web-entwicklungsvokabular)
 
 ---
 
