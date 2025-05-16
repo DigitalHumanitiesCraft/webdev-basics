@@ -423,7 +423,7 @@ Während Vibe Coding sich auf Programmierung konzentriert, beschreibt "Vibe Work
 ### Agentic Tools
 - **Claude Code (Anthropic)**: https://www.anthropic.com/claude-code
 - **Devin AI**: https://devin.ai/
-- **Cursor Composer**: https://www.cursor.com/composer
+- **Manus**: https://manus.im/
 
 ### Ressourcen zum Thema Vibe Coding
 - **Andrej Karpathy's Tweet zu Vibe Coding**: https://twitter.com/karpathy/status/1753203762513936495
