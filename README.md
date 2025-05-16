@@ -11,15 +11,14 @@
 1. [Web-Vokabular](#das-web-vokabular)
 2. [Einfache Entwicklungswerkzeuge](#werkzeuge-einrichten)
 3. [Markdown](#markdown)
-4. [Effektives Vibe Coding mit KI](#effektives-vibe-coding-mit-ki)
+4. [Effektives Vibe Coding mit KI](#vibe-coding)
 5. [Vom Code zur Website: Einfaches Deployment](#vom-code-zur-website---deployment)
-6. [Praxis: Digitale Geisteswissenschaften](#praktisches-beispiel---digitale-geisteswissenschaften)
-7. [Barrierefreiheit (a11y) Basics](#barrierefreiheit-a11y-basics)
-8. [Vibe Working in der Forschung](#vibe-working-in-der-forschung)
-9. [Praktische Tipps & Tricks](#praktische-tipps--tricks)
-10. [Weiterführende Ressourcen](#weiterführende-ressourcen)
-11. [Zusammenfassung](#zusammenfassung)
-12. [Web-Vokabular Übersicht](#umfassendes-web-entwicklungsvokabular)
+6. [Barrierefreiheit (a11y) Basics](#barrierefreiheit-a11y-basics)
+7. [Vibe Working in der Forschung](#vibe-working-in-der-forschung)
+8. [Praktische Tipps & Tricks](#praktische-tipps--tricks)
+9.  [Weiterführende Ressourcen](#weiterführende-ressourcen)
+10. [Zusammenfassung](#zusammenfassung)
+11. [Web-Vokabular Übersicht](#umfassendes-web-entwicklungsvokabular)
 
 ---
 
@@ -280,6 +279,20 @@ Der Begriff wurde von Andrej Karpathy (ehemaliger KI-Leiter bei Tesla und Gründ
 2. **KI-Generierung:** Erzeugung eines ersten Code-Entwurfs
 3. **Iterative Verfeinerung:** Feedback und Anpassungen
 4. **Überprüfung und Finalisierung:** Tests und Optimierungen
+
+### Beispielprompt
+
+(in der Präsentation mit diesen Daten und Claude 3.7 Sonnet Thinking Mode probiert: https://www.data.gv.at/katalog/dataset/vie-bdl-biz-ecl-tmp-1955f#resources)
+
+```markdown
+You are an expert in web developement.
+
+1. Analyze the CSV attached in detail.
+
+2. Then create a plan for a research website that displays this research data in various forms.
+
+3. Then implement the plan and show the output in artefacts!
+```
 
 ---
 
@@ -583,3 +596,161 @@ Während Vibe Coding sich auf Programmierung konzentriert, beschreibt "Vibe Work
 | **SRI**                     | Subresource Integrity - Sicherheitsfeature, das überprüft, ob externe Ressourcen (wie JavaScript-Bibliotheken) verändert wurden, bevor sie ausgeführt werden. Verwendet Hashwerte zur Validierung. Wichtig bei Einbindung von Code aus CDNs oder anderen externen Quellen.          |
 | **Anonymisierung**          | Prozess, bei dem personenbezogene Daten so verändert werden, dass Einzelpersonen nicht mehr identifizierbar sind. Essentiell für die Veröffentlichung von Forschungsdaten, Umfrageergebnissen oder historischen Dokumenten, die sensible Informationen enthalten könnten.           |
 | **Firewall**                | Sicherheitssystem, das unerwünschten Netzwerkverkehr filtert und blockiert. Schützt Webserver vor unautorisierten Zugriffen und potenziellen Angriffen. Für die meisten statischen Forschungswebsites wird dies vom Hosting-Anbieter bereitgestellt.                                |
+
+---
+# English
+
+## HTML Basics
+
+| Term                     | Explanation                                                                                                                                                                                                                                                               |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **HTML**                 | Hypertext Markup Language - fundamental language of the web that defines the structure and content of a website. HTML consists of elements marked by tags that tell the browser how to display the content.                                                                |
+| **Tag**                  | Markup element in HTML enclosed in angle brackets (e.g., `<p>` for paragraph, `<h1>` for main heading, `<article>` for a standalone content area). Tags usually appear in pairs (opening and closing), but can also be self-closing.                                       |
+| **Attribute**            | Additional information within a tag that modifies its behavior or appearance (e.g., `class="highlight"`, `id="chapter1"`, `lang="en"`). Attributes always appear in the opening tag.                                                                                      |
+| **DOCTYPE**              | Declaration at the beginning of an HTML document that tells the browser which HTML version is being used. In HTML5, it's simply defined as `<!DOCTYPE html>`.                                                                                                              |
+| **Meta Tags**            | Special elements in the `<head>` section of a webpage that define metadata such as character set, description, viewport settings, or author. Important for search engines and proper display.                                                                              |
+| **Semantic Elements**    | HTML5 elements that carry their meaning in their name and thus structure content meaningfully, e.g., `<article>`, `<section>`, `<nav>`, `<header>`, `<footer>`. Improve accessibility and SEO.                                                                            |
+| **Nesting**              | Hierarchical structure in HTML where elements are nested within each other. Proper nesting (e.g., lists within sections, paragraphs within articles) is crucial for valid HTML.                                                                                            |
+| **Block vs. Inline**     | Basic display types of HTML elements: Block elements (like `<div>`, `<p>`, `<h1>`) create a line break and take up the full available width. Inline elements (like `<span>`, `<a>`, `<em>`) fit into the text flow without line breaks.                                    |
+
+## CSS Basics
+
+| Term                | Explanation                                                                                                                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **CSS**             | Cascading Style Sheets - language for styling HTML documents. CSS defines how elements should look on screen (colors, fonts, spacing, layout).                                                                             |
+| **Selector**        | Part of a CSS rule that determines which HTML elements the styles should be applied to. Can include element names (`p`), classes (`.note`), IDs (`#header`), attributes, or combinations thereof.                          |
+| **Property**        | Styling feature defined by CSS, such as `color` (text color), `font-size` (font size), `margin` (outer spacing), `padding` (inner spacing), or `border` (frame).                                                          |
+| **Value**           | Specific form of a CSS property, e.g., color values (`#f5f5f5`, `rgb(255,0,0)`), size specifications (`16px`, `1.2rem`, `50%`), or keywords (`bold`, `italic`).                                                           |
+| **Box Model**       | Fundamental CSS concept that describes each HTML component as a "box" with Content, Padding, Border, and Margin. Important for understanding layout calculations.                                                          |
+| **Flexbox**         | Modern CSS layout system for one-dimensional arrangements (rows or columns). Enables flexible, responsive designs with easy alignment, distribution, and ordering of elements.                                             |
+| **CSS Grid**        | Powerful two-dimensional layout system in CSS that controls both rows and columns simultaneously. Ideal for complex grid structures and responsive designs.                                                                |
+| **Responsive Design** | Approach to web design where layouts automatically adapt to different screen sizes (from smartphone to desktop). Fundamental for user-friendly websites.                                                                   |
+| **Media Queries**   | CSS technique that allows defining different styles for various device properties (e.g., screen width, resolution). Basis for responsive designs: `@media (max-width: 600px) { ... }`                                     |
+| **Specificity**     | Rule system in CSS that determines which styles take precedence when multiple rules apply to an element. ID selectors have higher specificity than class selectors, which in turn have higher specificity than element selectors. |
+| **Inheritance**     | Mechanism in CSS where certain properties (such as font type or text color) are passed from parent elements to their child elements, unless explicitly overridden.                                                         |
+
+## JavaScript Basics
+
+| Term              | Explanation                                                                                                                                                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **JavaScript**    | Programming language for the web that enables interactivity. With JavaScript, websites can respond to user inputs, dynamically change content, and communicate with servers.                                                                  |
+| **Variables**     | Storage locations for data in JavaScript. Declared with `const` (immutable), `let` (mutable), or `var` (older variant). Variables can contain text, numbers, objects, or other data types.                                                    |
+| **Functions**     | Reusable blocks of code that perform specific tasks. Can accept parameters and return values. Enable structured, modular programming.                                                                                                         |
+| **Arrow Functions** | Modern, compact syntax for functions in JavaScript: `(parameter) => { /* Code */ }`. Offers shorter syntax and maintains the `this` context.                                                                                                 |
+| **DOM**           | Document Object Model - programming interface that represents HTML as a tree structure. Allows JavaScript to access and manipulate HTML elements (change content, adjust styles, add or remove elements).                                     |
+| **Event Listener** | Mechanism that responds to specific events (such as clicks, keyboard inputs, page loading). With `element.addEventListener('click', function() { /* reaction */ })` interactions are enabled.                                                |
+| **fetch API**     | Modern JavaScript method for retrieving resources (such as text files, JSON data, or API requests) over the network. Uses Promises for asynchronous operations and replaces the older XMLHttpRequest.                                        |
+| **JSON**          | JavaScript Object Notation - lightweight data format that is human-readable and easy for machines to process. Standard format for data exchange on the web.                                                                                   |
+| **async/await**   | Syntax extension for asynchronous programming in JavaScript that makes complex sequences more readable. `async` marks functions that return Promises; `await` pauses execution until a Promise is fulfilled.                                  |
+| **Modules**       | Organizational units in JavaScript that divide code into separate files. With `import` and `export`, functions, classes, and variables can be exchanged between files, improving maintainability.                                             |
+
+## Web Development with Frameworks and Libraries
+
+| Term          | Explanation                                                                                                                                                                                                                                                |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Library**   | Collection of pre-made functions and components that facilitate specific tasks (e.g., jQuery for DOM manipulation, Chart.js for diagrams). Libraries integrate into existing projects without determining the entire architecture.                          |
+| **Framework** | Comprehensive system with predefined structure and workflows for web development. Frameworks like React, Vue, or Angular offer complete solutions for creating complex applications with their own conventions and paradigms.                              |
+| **jQuery**    | Widespread JavaScript library that simplifies DOM manipulation, event handling, and animation. Despite more modern alternatives, still commonly found in existing projects. jQuery syntax typically begins with the $ sign.                                |
+| **Bootstrap** | Popular CSS framework that provides ready-made components and a grid system for responsive layouts. Enables rapid development of appealing user interfaces without deep CSS knowledge.                                                                     |
+| **Chart.js**  | JavaScript library for creating interactive charts and visualizations. Offers various chart types (bar, line, pie) with responsive design and animation. Particularly suitable for data visualization in research projects.                                |
+| **D3.js**     | Powerful library for data-driven visualizations. Enables highly customizable, interactive graphics through direct DOM manipulation. More complex than Chart.js, but more flexible for specialized or unusual visualizations.                               |
+| **Leaflet**   | Compact open-source library for interactive maps. Ideal for displaying geographical data, historical maps, or spatial relationships in research projects. Supports various map layers and markers.                                                         |
+| **GSAP**      | GreenSock Animation Platform - professional JavaScript library for high-quality web animations. Offers precise control over timing, sequencing, and complex movement patterns for interactive presentations.                                               |
+| **TimelineJS** | Specialized open-source tool for creating interactive, media-rich timelines. Particularly suitable for historical, cultural, or biographical chronologies in humanities projects.                                                                          |
+
+## General Web Concepts
+
+| Term                    | Explanation                                                                                                                                                                                                                                                |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend**            | The part of a website or web application that users directly see and interact with. Consists of HTML (structure), CSS (design), and JavaScript (interactivity). Responsible for user experience and content presentation.                                   |
+| **Backend**             | The server-side component of a web application that is invisible to users. Processes requests, interacts with databases, and executes business logic. Programming languages like Python, PHP, Node.js, or Ruby are used here.                              |
+| **Static Website**      | Website without dynamic server processing, where all pages are delivered as finished HTML files. Easy to host, fast, and secure. Ideal for content that changes rarely or doesn't require user data processing.                                            |
+| **Dynamic Website**     | Website that generates content individually for each request, often involving databases. Enables personalized content, user accounts, and more complex functions, but requires server-side programming.                                                    |
+| **API**                 | Application Programming Interface - interface for data exchange between different software systems. Allows websites to connect to external services or data sources (e.g., library catalogs, museum databases, research databases).                         |
+| **REST API**            | Representational State Transfer - standardized architectural style for web APIs with defined endpoints and HTTP methods (GET, POST, PUT, DELETE). Widely used for data exchange between web applications and services.                                    |
+| **Client-Server Model** | Basic architecture of the web: The client (browser) sends requests to the server, which processes them and sends back responses. The division of tasks allows specialized optimization on both sides.                                                      |
+| **CRUD**                | Create, Read, Update, Delete - the four basic database operations. Describes the lifecycle of data records in many applications, from simple note collections to complex research databases.                                                               |
+| **HTTP/HTTPS**          | Hypertext Transfer Protocol (Secure) - communication protocols for data transfer on the web. HTTPS provides encrypted connections, which is especially important for sensitive academic data or access controls.                                           |
+| **URL**                 | Uniform Resource Locator - the address of a web resource. Consists of protocol (https://), domain (example.com), path (/collection/document), and optional parameters (?year=1920). Important for organizing digital collections.                          |
+
+## Development Tools and Workflow
+
+| Term              | Explanation                                                                                                                                                                                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **VS Code**       | Visual Studio Code - popular, free code editor from Microsoft with broad language support and extensibility. Offers syntax highlighting, auto-completion, integrated terminal, and numerous extensions for web development.                              |
+| **Git**           | Distributed version control system that tracks changes to files. Enables collaboration of multiple people on one codebase, experimentation with different solution approaches, and restoration of previous versions.                                     |
+| **GitHub/GitLab** | Web platforms for Git repositories with additional collaboration features such as issue tracking, pull requests, and project management. Also offer simple hosting for web projects (GitHub Pages, GitLab Pages).                                       |
+| **DevTools**      | Developer tools built into browsers that enable inspection and debugging of websites. Allow analysis of HTML structure, CSS styles, JavaScript execution, network requests, and performance.                                                             |
+| **Hard Refresh**  | Complete reload of a webpage that bypasses the browser cache. Executable with key combinations like Ctrl+F5 (Windows) or Cmd+Shift+R (Mac). Important during development to ensure that the latest changes are displayed.                               |
+| **Inspector**     | Part of browser DevTools that displays the HTML structure and CSS styles of a webpage and allows editing in the browser. Helpful for experimenting with layout changes before implementing them in code.                                                |
+| **Console**       | JavaScript debugging tool in browser DevTools that displays errors and allows executing code. Through `console.log()`, programmers can output values for troubleshooting and track program flow.                                                        |
+| **Lighthouse**    | Automated auditing tool from Google for websites that checks performance, accessibility, SEO, and best practices. Provides concrete improvement suggestions and measures loading times on various devices.                                              |
+| **npm/yarn**      | Package managers for JavaScript that simplify installation and management of libraries and tools. Use a central configuration file (package.json) and enable reproducible development environments.                                                     |
+| **Bundler**       | Tools like Webpack or Parcel that combine many separate files (JavaScript, CSS, images) into optimized packages. Reduce the number of network requests and enable modern JavaScript features even in older browsers.                                    |
+
+## Deployment and Hosting
+
+| Term            | Explanation                                                                                                                                                                                                                                                     |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Deployment**  | Process of publishing a website or application on a server so that it becomes publicly accessible. Includes transferring files, configuration, and possibly database migration.                                                                                  |
+| **GitHub Pages** | Free hosting service for static websites directly from GitHub repositories. Particularly easy for research projects or personal websites, as no separate server infrastructure is needed. Supports HTML, CSS, JavaScript, and Jekyll.                            |
+| **Netlify**     | Modern hosting platform for static websites with advanced features such as automatic builds, form processing, and easy publication directly from Git repositories. Offers a generous free tier for academic projects.                                           |
+| **Vercel**      | Hosting platform optimized for modern JavaScript frameworks like Next.js or React. Offers global distribution, automatic previews for each Git branch, and serverless functions for simple backend logic.                                                       |
+| **Domain**      | The unique address of a website on the internet (e.g., "university-vienna.ac.at"). Consists of the name and a top-level domain (.com, .org, .edu). Can be purchased from domain registrars and then connected to hosting services.                              |
+| **DNS**         | Domain Name System - translates user-friendly domain names into IP addresses that identify computers on the internet. DNS settings link your domain to your web server and configure subdomain redirections or email services.                                  |
+| **SSL/TLS**     | Security protocols that enable encrypted connections between browsers and web servers (recognizable by HTTPS and lock symbol). Protect transferred data from eavesdropping and are especially important for login areas or sensitive research data.             |
+| **CDN**         | Content Delivery Network - distributed server network that stores copies of your website at various geographic locations. Speeds up loading time for international visitors and reduces server load during high traffic volumes.                                |
+
+## Accessibility (a11y) and Best Practices
+
+| Term                       | Explanation                                                                                                                                                                                                                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Accessibility (a11y)**   | Design principle that ensures websites are usable for all people, including persons with disabilities. "a11y" is an abbreviation (Accessibility has 11 letters between A and Y). Includes technical, content-related, and design aspects.                                              |
+| **ARIA**                   | Accessible Rich Internet Applications - set of HTML attributes that provide additional information for screen readers and other assistive technologies. Improves navigation and understanding of complex web components for people with disabilities.                                  |
+| **Alt Text**               | Alternative text description for images (via the `alt` attribute) that screen readers can read aloud. Particularly important for historical documents, artwork, or diagrams in scientific projects. Should precisely describe the content and meaning of the image.                    |
+| **Semantic Structure**     | Use of HTML elements according to their meaning (e.g., `<nav>` for navigation, `<article>` for standalone content), instead of building everything with generic `<div>` elements. Improves accessibility, SEO, and maintainability.                                                   |
+| **Color Contrast**         | Difference between text and background color, measured in contrast ratio. The WCAG guidelines recommend at least 4.5:1 for normal text and 3:1 for large headings. Crucial for readability, especially for people with visual impairments.                                             |
+| **Keyboard Navigation**    | Ability to navigate a website completely without a mouse, using only the keyboard. Important for people with motor impairments. Includes logical tab order, visible focus, and access to all interactive elements.                                                                     |
+| **Screen Reader**          | Assistive technology that converts screen content into speech or Braille output. Applications like JAWS, NVDA, or VoiceOver enable blind or visually impaired people to use digital content. Websites should be compatible with these tools.                                           |
+| **Responsive Images**      | Techniques for optimizing images for different screen sizes and resolutions. Uses `srcset` and `sizes` attributes or the `<picture>` element to provide different image versions for different devices. Improves loading time and data consumption.                                    |
+| **Semantic Forms**         | Accessible design of input forms with correct labeling (`<label>`), meaningful grouping (`<fieldset>`), informative error messages, and clear navigation structure. Simplifies data entry for all users.                                                                               |
+
+## Data and Formats for Humanities
+
+| Term           | Explanation                                                                                                                                                                                                                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **CSV**        | Comma-Separated Values - simple tabular file format where values are separated by commas. Easy to create, edit (also in Excel or Google Sheets), and process with various programming languages. Ideal for structured datasets like bibliographies or historical time series.                         |
+| **XML**        | Extensible Markup Language - hierarchical, structured file format with tags similar to HTML. Enables complex, nested data structures with attributes. Widely used in digital humanities for text markup and data exchange between systems.                                                            |
+| **JSON**       | JavaScript Object Notation - lightweight, human-readable data format. Consists of key-value pairs and supports nested structures. Ideal for web applications as it is directly processable in JavaScript and has less overhead than XML.                                                              |
+| **TEI**        | Text Encoding Initiative - XML-based standard for encoding and marking up texts in the humanities. Offers specialized tags for literary texts, historical documents, manuscripts, and critical editions with scholarly apparatus.                                                                     |
+| **RDF**        | Resource Description Framework - standard for describing resources in the Semantic Web. Structures data as triples (subject-predicate-object) and enables complex relationship networks between entities. Foundation for Linked Data in archives and libraries.                                       |
+| **Linked Data** | Approach to linking structured data on the web through standardized URIs and RDF. Enables the networking of various data sources (e.g., people, places, concepts) across institutional boundaries. Important for interdisciplinary research and open science.                                         |
+| **IIIF**       | International Image Interoperability Framework - standard for accessing, displaying, and exchanging high-quality images. Enables zoom, rotation, and annotation of images as well as the integration of image resources from different digital collections.                                           |
+| **Zotero API** | Programming interface of the free bibliographic management software Zotero. Enables programmatic access to bibliographic data, collections, and tags. Can be used for the dynamic integration of literature lists in research websites.                                                               |
+
+## AI Collaboration (Vibe Coding)
+
+| Term                     | Explanation                                                                                                                                                                                                                                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Vibe Coding**          | AI-assisted software development where a person describes a problem in natural language and the AI generates functioning code. Enables even non-programmers to implement complex digital projects. The term was coined by Andrej Karpathy (former AI leader at Tesla).                               |
+| **Prompt Engineering**   | Art and science of formulating instructions (prompts) for AI systems to deliver precise and useful answers. Includes the use of clear technical terms, specific instructions, and structured requests.                                                                                               |
+| **Promptotyping**        | Iterative process where a digital prototype is developed through step-by-step improvement of prompts. Often begins with conceptual questions and becomes increasingly specific until the desired code or design is achieved.                                                                         |
+| **Prompt Template**      | Standardized structure for AI requests for certain task types. Contains placeholders for project-specific details and ensures consistent, effective communication with the AI. Helpful for recurring tasks such as data visualizations or components.                                                 |
+| **Chain-of-Thought**     | Method where the AI is guided through multiple logical steps to solve complex problems. The user breaks down a problem into smaller subtasks and has the AI address them in sequence, with each step building on the previous one.                                                                   |
+| **Clean Code Handover**  | Practices for optimizing AI-generated code for direct use. Includes clear formatting, meaningful comments, consistent naming conventions, and organization into copyable blocks that can be directly incorporated into a project.                                                                    |
+| **AI Debugging**         | Process where AI helps identify and fix errors in code. By precisely describing the problem, error messages, and expected behavior, the AI can offer targeted solution suggestions.                                                                                                                  |
+| **Prompt Iteration**     | Gradual refinement of AI requests based on received answers. Through targeted feedback and adjustments, the quality of AI output is continuously improved. Similar to the editorial process in writing.                                                                                              |
+| **AI Code Explanation**  | Function of AI systems to explain generated code in natural language. Particularly valuable for learners or domain experts without deep programming knowledge to understand the functionality and logic of the code.                                                                                 |
+| **Code Refactoring**     | Restructuring existing code with AI support to improve readability, efficiency, or maintainability without changing functionality. AI can simplify complex code sections, eliminate redundancies, and introduce modern best practices.                                                               |
+
+## Data Security and Privacy
+
+| Term                       | Explanation                                                                                                                                                                                                                                                                     |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **HTTPS**                  | Hypertext Transfer Protocol Secure - encrypted version of the web communication protocol. Protects data transmission between browser and server from eavesdropping or manipulation. Recommended for all websites, especially those with form fields or personal data.             |
+| **GDPR/DSGVO**             | General Data Protection Regulation - EU regulation for the protection of personal data. Regulates collection, processing, and storage of user data. Particularly relevant for scientific projects when collecting research data, interviews, or surveys.                          |
+| **Cookie Notice**          | Legally required information about the use of cookies or similar tracking technologies on a website. Must give users the option to reject non-essential cookies. Relevant for all public websites in the EU.                                                                    |
+| **Content Security Policy** | Security mechanism that specifies which resources (scripts, stylesheets, images) a webpage is allowed to load and from which sources. Protects against Cross-Site Scripting (XSS) and other injection attacks. Implemented as an HTTP header or meta tag.                       |
+| **SRI**                    | Subresource Integrity - security feature that checks whether external resources (such as JavaScript libraries) have been modified before they are executed. Uses hash values for validation. Important when including code from CDNs or other external sources.                 |
+| **Anonymization**          | Process where personal data is altered so that individuals are no longer identifiable. Essential for publishing research data, survey results, or historical documents that might contain sensitive information.                                                                |
+| **Firewall**               | Security system that filters and blocks unwanted network traffic. Protects web servers from unauthorized access and potential attacks. For most static research websites, this is provided by the hosting provider.                                                             |
