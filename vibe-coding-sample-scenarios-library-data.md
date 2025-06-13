@@ -45,7 +45,7 @@ Pride and Prejudice,Jane Austen,4.28,Romance,279,1813
 ---
 
 ## **Datensatz 3: Library Management System Dataset**
-**Quelle:** [Kaggle Library Books](https://www.kaggle.com/datasets/bimalgajera/library-books)
+**Quelle:** [Kaggle Library Books](https://github.com/DigitalHumanitiesCraft/webdev-basics/blob/main/books-data.csv)
 
 ### 🏷️ **Szenario 3: Bestandsmanagement "Wo ist mein Buch?"**
 ```
