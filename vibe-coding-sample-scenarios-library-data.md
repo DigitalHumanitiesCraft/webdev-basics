@@ -22,7 +22,7 @@ Avalon,2024,01,2156,1123
 ---
 
 ## **Datensatz 2: Goodbooks-10k (Books Sample)**
-**Quelle:** [GitHub Goodbooks-10k](https://github.com/zygmuntz/goodbooks-10k)
+**Quelle:** [GitHub Goodbooks-10k](https://github.com/zygmuntz/goodbooks-10k/blob/master/samples/books.csv)
 
 ### 📚 **Szenario 2: Buchempfehlungs-Tool "Finde dein nächstes Lieblingsbuch"**
 ```
