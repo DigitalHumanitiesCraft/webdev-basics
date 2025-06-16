@@ -98,4 +98,4 @@ Nächster Schritt: [NUR eine Sache implementieren]
 
 **Zeitaufwand:** 15-60 Min für Setup, dann iterative Zyklen
 
-**Ziel:** Systematisches, nachvollziehbares Vibe Coding mit Expert-Validation
+## **Ziel:** Systematisches, nachvollziehbares Vibe Coding mit Expert-Validation
