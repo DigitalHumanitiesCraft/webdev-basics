@@ -27,30 +27,21 @@ Year,Temperature_Anomaly_C,Smoothed_Anomaly,Hemisphere
 ---
 
 ## **Dataset 2: GBIF Species Occurrences**
-**Source:** [GBIF Download Portal](https://www.gbif.org/) / [Sample Butterfly Data](https://github.com/gbif/occurrence/issues)
+**Source:** [Sample Butterfly Data](https://zenodo.org/records/7749600)
 
 ### 🦋 **Scenario 2: Biodiversity Explorer "Where Lives What?"**
 ```
-Build an interactive map for species occurrences.
-Data: Species (Scientific Name), Longitude, Latitude, Date, Country
-Features: Map with markers, filter by species/year/country
-Statistics: Which species are most common? Trends over time?
-Bonus: Clustering of locations
-```
-
-**Sample CSV:**
-```csv
-Scientific_Name,Common_Name,Latitude,Longitude,Date,Country,Observer
-Papilio machaon,Swallowtail,48.2082,16.3738,2023-05-12,Austria,M. Schmidt
-Vanessa atalanta,Red Admiral,52.5200,13.4050,2023-06-18,Germany,K. Mueller
-Papilio machaon,Swallowtail,48.1351,11.5820,2023-05-20,Germany,L. Weber
-Aglais io,Peacock Butterfly,47.0707,15.4395,2023-07-03,Austria,J. Berger
+Build a dashboard for butterfly population trends in UK gardens.
+Data: Species, Year, Abundance Index, Trends
+Features: Time series visualization, species comparison
+Show: Which species are increasing/declining? Seasonal patterns?
+Interactive: Select species, zoom into time periods, compare multiple species
 ```
 
 ---
 
 ## **Dataset 3: Scientific Publications Metadata**
-**Source:** [PubMed Sample](https://www.kaggle.com/datasets/gpreda/pubmed-abstracts) / [ArXiv Dataset](https://www.kaggle.com/datasets/Cornell-University/arxiv)
+**Source:** [PubMed Sample](https://www.kaggle.com/datasets/bonhart/pubmed-abstracts)
 
 ### 📄 **Scenario 3: Research Trend Analyzer "What's Hot Right Now?"**
 ```
